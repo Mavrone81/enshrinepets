@@ -91,3 +91,13 @@ fieldset>legend{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:v
 .inline-form input{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-family:inherit}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:680px){.grid-2{grid-template-columns:1fr}.img-field{flex-direction:column}}
+
+/* Language tabs (multi-language editor) */
+.lang-tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:18px 0 6px;padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.lang-tabs-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:#7782a6;margin-right:2px}
+.lang-tab{font-size:.92rem;padding:7px 16px;border-radius:30px;border:1px solid var(--line);color:var(--ink);transition:all .2s}
+.lang-tab:hover{border-color:var(--gold);color:var(--navy)}
+.lang-tab.active{background:linear-gradient(135deg,var(--gold),var(--gold-light));border-color:var(--gold);color:var(--navy-deep);font-weight:500}
+.lang-tabs-view{margin-left:auto;font-size:.82rem;color:var(--gold);border:1px solid rgba(201,162,75,.5);padding:7px 14px;border-radius:30px}
+.lang-tabs-view:hover{background:rgba(201,162,75,.12)}
+.lang-note{background:#fff7e6;border:1px solid var(--gold-light);color:#6b5520;padding:10px 14px;border-radius:10px;font-size:.9rem;margin-bottom:14px}

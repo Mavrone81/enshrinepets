@@ -15,12 +15,76 @@ const PORT = process.env.PORT || 20101;
 
 const DATA_DIR = path.join(__dirname, 'data');
 const CONTENT_FILE = path.join(DATA_DIR, 'content.json');
+const I18N_DIR = path.join(DATA_DIR, 'i18n');
 const USERS_FILE = path.join(DATA_DIR, 'users.json');
 const UPLOAD_DIR = path.join(__dirname, 'public', 'uploads');
 
 // Image fields are identified by their key name.
-const IMAGE_KEYS = ['image', 'logo', 'buildingImage'];
+const IMAGE_KEYS = ['image', 'logo', 'buildingImage', 'favicon'];
 const isImageKey = (key) => IMAGE_KEYS.includes(key);
+
+// ---------------------------------------------------------------------------
+// Languages / i18n
+// ---------------------------------------------------------------------------
+// 'en' is the base content.json. Every other language is an overlay file in
+// data/i18n/<code>.json holding only the translatable strings; anything missing
+// falls back to the English base.
+const DEFAULT_LANG = 'en';
+const LANGUAGES = [
+  { code: 'en', label: 'English',       short: 'EN' },
+  { code: 'zh', label: '中文',          short: '中' },
+  { code: 'ta', label: 'தமிழ்',         short: 'த' },
+  { code: 'ms', label: 'Bahasa Melayu', short: 'MS' }
+];
+const LANG_CODES = LANGUAGES.map(l => l.code);
+const isLang = (code) => LANG_CODES.includes(code);
+
+// Fields shared across all languages — never translated, so they are hidden in
+// the per-language admin editor and never written into an overlay file.
+const NON_TRANSLATABLE_KEYS = new Set([
+  'href', 'ctaLink', 'primaryBtnLink', 'secondaryBtnLink', 'btnLink',
+  'mapQuery', 'phone', 'whatsapp', 'email', 'flip',
+  'image', 'logo', 'buildingImage', 'favicon', 'address'
+]);
+const isTranslatableKey = (key) => !NON_TRANSLATABLE_KEYS.has(key);
+
+// Deep-merge an overlay onto a base value. Arrays merge by index (so a
+// translated card keeps the base card's image); objects merge by key;
+// primitives are taken from the overlay when present.
+function deepMerge(base, overlay) {
+  if (overlay === undefined || overlay === null) return base;
+  if (Array.isArray(base)) {
+    if (!Array.isArray(overlay)) return base;
+    return base.map((item, i) => deepMerge(item, overlay[i]));
+  }
+  if (base && typeof base === 'object') {
+    if (typeof overlay !== 'object' || Array.isArray(overlay)) return base;
+    const out = {};
+    for (const k of Object.keys(base)) out[k] = deepMerge(base[k], overlay[k]);
+    return out;
+  }
+  return overlay !== undefined ? overlay : base;
+}
+
+const overlayPath = (lang) => path.join(I18N_DIR, `${lang}.json`);
+const loadOverlay = (lang) => readJSON(overlayPath(lang), {});
+const saveOverlay = (lang, obj) => writeJSON(overlayPath(lang), obj);
+
+// The content tree for a given language (English base merged with the overlay).
+function localizedContent(lang) {
+  const base = loadContent();
+  if (!isLang(lang) || lang === DEFAULT_LANG) return base;
+  return deepMerge(base, loadOverlay(lang));
+}
+
+// Resolve the visitor's language from ?lang=, then the `lang` cookie, else default.
+function resolveLang(req) {
+  const q = (req.query.lang || '').toLowerCase();
+  if (isLang(q)) return q;
+  const m = (req.headers.cookie || '').match(/(?:^|;\s*)lang=([a-z]{2})/);
+  if (m && isLang(m[1])) return m[1];
+  return DEFAULT_LANG;
+}
 
 // ---------------------------------------------------------------------------
 // Storage helpers
@@ -125,7 +189,12 @@ function requireAuth(req, res, next) {
 // Public site
 // ---------------------------------------------------------------------------
 app.get('/', (req, res) => {
-  res.render('index', { c: loadContent() });
+  const lang = resolveLang(req);
+  // Persist an explicit ?lang= choice for a year.
+  if (isLang((req.query.lang || '').toLowerCase())) {
+    res.setHeader('Set-Cookie', `lang=${lang}; Path=/; Max-Age=${60 * 60 * 24 * 365}; SameSite=Lax`);
+  }
+  res.render('index', { c: localizedContent(lang), lang, languages: LANGUAGES });
 });
 
 // ---------------------------------------------------------------------------
@@ -155,31 +224,49 @@ app.post('/admin/logout', requireAuth, (req, res) => {
 // Admin: content editor
 // ---------------------------------------------------------------------------
 app.get('/admin', requireAuth, (req, res) => {
-  res.render('admin', { c: loadContent(), isImageKey });
+  const q = (req.query.lang || '').toLowerCase();
+  const lang = isLang(q) ? q : DEFAULT_LANG;
+  // English edits the base directly; other languages show the merged tree so
+  // untranslated fields display their English value as a starting point.
+  const c = lang === DEFAULT_LANG ? loadContent() : localizedContent(lang);
+  res.render('admin', {
+    c, isImageKey, isTranslatableKey,
+    lang, languages: LANGUAGES, editLangLabel: (LANGUAGES.find(l => l.code === lang) || {}).label
+  });
 });
 
 app.post('/admin/save', requireAuth, upload.any(), (req, res) => {
+  const lang = isLang((req.body._lang || '').toLowerCase()) ? req.body._lang.toLowerCase() : DEFAULT_LANG;
+  const SKIP = new Set(['_section', '_lang']);
   try {
-    const content = loadContent();
-
-    // 1) Apply all text fields from the form (names are dotted paths).
-    for (const [key, value] of Object.entries(req.body)) {
-      if (key === '_section') continue;
-      setPath(content, key, value);
+    if (lang === DEFAULT_LANG) {
+      // English — edit the base content (text fields + uploaded images).
+      const content = loadContent();
+      for (const [key, value] of Object.entries(req.body)) {
+        if (SKIP.has(key)) continue;
+        setPath(content, key, value);
+      }
+      for (const file of req.files || []) {
+        setPath(content, file.fieldname, '/uploads/' + file.filename);
+      }
+      saveContent(content);
+    } else {
+      // Other language — write translated text into that language's overlay.
+      // (Images and other shared fields are never posted in non-English mode.)
+      const overlay = loadOverlay(lang);
+      for (const [key, value] of Object.entries(req.body)) {
+        if (SKIP.has(key)) continue;
+        setPath(overlay, key, value);
+      }
+      saveOverlay(lang, overlay);
     }
-
-    // 2) Apply uploaded images — fieldname is the dotted path of the image.
-    for (const file of req.files || []) {
-      setPath(content, file.fieldname, '/uploads/' + file.filename);
-    }
-
-    saveContent(content);
     flash(req, 'success', 'Changes saved. Your website has been updated.');
   } catch (e) {
     console.error(e);
     flash(req, 'error', 'Something went wrong while saving: ' + e.message);
   }
-  res.redirect('/admin' + (req.body._section ? '#' + req.body._section : ''));
+  const langQuery = lang === DEFAULT_LANG ? '' : '?lang=' + lang;
+  res.redirect('/admin' + langQuery + (req.body._section ? '#' + req.body._section : ''));
 });
 
 // ---------------------------------------------------------------------------
@@ -244,6 +331,7 @@ app.use((err, req, res, next) => {
 
 // ---------------------------------------------------------------------------
 ensureUsers();
+fs.mkdirSync(I18N_DIR, { recursive: true });
 app.listen(PORT, () => {
   console.log(`\n  Enshrine website running:`);
   console.log(`    Public site : http://localhost:${PORT}/`);

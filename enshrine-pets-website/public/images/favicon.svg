@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16246e"/>
+      <stop offset="1" stop-color="#0a1240"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9c7322"/>
+      <stop offset="0.35" stop-color="#e8cf8e"/>
+      <stop offset="0.55" stop-color="#f7eecb"/>
+      <stop offset="0.75" stop-color="#c9a24b"/>
+      <stop offset="1" stop-color="#8a6418"/>
+    </linearGradient>
+  </defs>
+
+  <!-- navy rounded tile -->
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#navy)"/>
+  <rect x="2.5" y="2.5" width="59" height="59" rx="12.5" fill="none" stroke="url(#gold)" stroke-width="1" opacity="0.55"/>
+
+  <!-- gold cartouche -->
+  <ellipse cx="32" cy="29" rx="18" ry="22" fill="none" stroke="url(#gold)" stroke-width="2.4"/>
+
+  <!-- serif "E" monogram -->
+  <g fill="url(#gold)">
+    <path d="M24.2 16.6 h15.4 v4.3 h-10.4 v5.6 h8.8 v4.2 h-8.8 v6.2 h10.8 v4.4 h-15.8 z"/>
+    <!-- left stem serif accent -->
+    <rect x="22.5" y="16.6" width="2.0" height="25.1"/>
+  </g>
+
+  <!-- small paw flourish below the monogram -->
+  <g fill="url(#gold)">
+    <ellipse cx="32" cy="47.6" rx="2.6" ry="2.1"/>
+    <circle cx="28.1" cy="44.7" r="1.05"/>
+    <circle cx="30.8" cy="43.4" r="1.1"/>
+    <circle cx="33.2" cy="43.4" r="1.1"/>
+    <circle cx="35.9" cy="44.7" r="1.05"/>
+  </g>
+</svg>

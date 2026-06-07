@@ -12,17 +12,28 @@ const LABELS={
   btnLabel:'Button label', btnLink:'Button link (URL)',
   mapQuery:'Map location (address shown on Google Maps)', cardTitle:'Card title',
   buildingImage:'Building photo', logo:'Logo', image:'Photo',
+  favicon:'Favicon (browser-tab icon — square image or .svg works best)',
   value:'Number / value', label:'Label', href:'Link (URL)', text:'Text',
   title:'Page title (browser tab & search results)', description:'Search-engine description'
 };
 function labelFor(k){return LABELS[k] || humanize(k);}
 function singular(k){return k.replace(/ies$/,'y').replace(/s$/,'');}
 
+// In non-English mode, hide fields that are shared across all languages
+// (images, links, the contact number/email/address itself). Matched by key
+// name or — where a key is ambiguous (contact.phone the number vs
+// contact.labels.phone the word) — by full dotted path.
+const HIDE_KEYS = new Set(['image','logo','buildingImage','favicon','href','ctaLink','primaryBtnLink','secondaryBtnLink','btnLink','mapQuery']);
+const HIDE_PATHS = new Set(['contact.address','contact.phone','contact.whatsapp','contact.email']);
+const editingTranslation = (typeof lang !== 'undefined') && lang !== 'en';
+function hiddenInTranslation(path,key){ return HIDE_KEYS.has(key) || HIDE_PATHS.has(path); }
+
 function imageHTML(val,path,key){
   return `<div class="img-field"><img class="thumb" src="${esc(val)}" alt=""><div class="img-body"><label>${esc(labelFor(key))} — choose a file to replace</label><input type="file" name="${esc(path)}" accept="image/*"><div class="path">Current: ${esc(val)}</div></div></div>`;
 }
 function fieldHTML(val,path,key){
   if(typeof val==='boolean') return '';
+  if(editingTranslation && hiddenInTranslation(path,key)) return '';
   if(typeof val==='string'){
     if(isImageKey(key)) return imageHTML(val,path,key);
     const long = val.length>70 || /\n/.test(val);
@@ -94,6 +105,17 @@ const SECTIONS={
     <p>Change any wording and upload new photos below. Each section saves on its own — click its <strong>Save</strong> button after editing, then open <em>View Site</em> to see the result.</p>
   </div>
 
+  <div class="lang-tabs">
+    <span class="lang-tabs-label">Editing language:</span>
+    <% languages.forEach(function(L){ %>
+      <a href="/admin?lang=<%= L.code %>" class="lang-tab<%= L.code === lang ? ' active' : '' %>" lang="<%= L.code %>"><%= L.label %></a>
+    <% }); %>
+    <a class="lang-tabs-view" href="/?lang=<%= lang %>" target="_blank">View this language ↗</a>
+  </div>
+  <% if (editingTranslation) { %>
+    <p class="lang-note">You are editing the <strong><%= editLangLabel %></strong> translation. Photos, links, phone and email are shared across all languages — switch to <strong>English</strong> to change those. Empty-looking fields fall back to the English text.</p>
+  <% } %>
+
   <% if (flash) { %><div class="flash <%= flash.type %>"><%= flash.message %></div><% } %>
 
   <div class="section-nav">
@@ -105,6 +127,7 @@ const SECTIONS={
   <% Object.keys(SECTIONS).forEach(function(k){ if(c[k]){ %>
     <form class="card" id="<%= k %>" method="post" action="/admin/save" enctype="multipart/form-data">
       <input type="hidden" name="_section" value="<%= k %>">
+      <input type="hidden" name="_lang" value="<%= lang %>">
       <h2><%= SECTIONS[k].title %></h2>
       <p class="hint"><%= SECTIONS[k].hint %></p>
       <%- objHTML(c[k], k) %>

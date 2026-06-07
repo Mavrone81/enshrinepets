@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= lang %>">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><%= c.meta.title %></title>
 <meta name="description" content="<%= c.meta.description %>">
+<% if (c.meta.favicon) { %><link rel="icon" href="<%= c.meta.favicon %>"<%- /\.svg(\?|$)/i.test(c.meta.favicon) ? ' type="image/svg+xml"' : '' %>>
+<link rel="apple-touch-icon" href="<%= c.meta.favicon %>"><% } %>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;600&family=Noto+Sans+Tamil:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -20,7 +23,14 @@
         <li><a href="<%= l.href %>"><%= l.label %></a></li>
       <% }); %>
     </ul>
-    <a class="btn btn-gold nav-cta" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <% languages.forEach(function(L){ %>
+          <a href="/?lang=<%= L.code %>#top" class="lang-opt<%= L.code === lang ? ' active' : '' %>" hreflang="<%= L.code %>" lang="<%= L.code %>"><%= L.short %></a>
+        <% }); %>
+      </div>
+      <a class="btn btn-gold nav-cta" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a>
+    </div>
   </div>
 </nav>
 
@@ -152,11 +162,11 @@
     <div class="contact-grid">
       <div class="contact-card">
         <h3><%= c.contact.cardTitle %></h3>
-        <div class="contact-line"><b>Address</b><span><%= c.contact.address %></span></div>
-        <div class="contact-line"><b>Visiting</b><span><%= c.contact.visiting %></span></div>
-        <div class="contact-line"><b>Phone</b><span><%= c.contact.phone %></span></div>
-        <div class="contact-line"><b>WhatsApp</b><span><%= c.contact.whatsapp %></span></div>
-        <div class="contact-line"><b>Email</b><span><%= c.contact.email %></span></div>
+        <div class="contact-line"><b><%= c.contact.labels.address %></b><span><%= c.contact.address %></span></div>
+        <div class="contact-line"><b><%= c.contact.labels.visiting %></b><span><%= c.contact.visiting %></span></div>
+        <div class="contact-line"><b><%= c.contact.labels.phone %></b><span><%= c.contact.phone %></span></div>
+        <div class="contact-line"><b><%= c.contact.labels.whatsapp %></b><span><%= c.contact.whatsapp %></span></div>
+        <div class="contact-line"><b><%= c.contact.labels.email %></b><span><%= c.contact.email %></span></div>
         <a class="btn btn-gold" href="<%= c.contact.btnLink %>"><%= c.contact.btnLabel %></a>
       </div>
       <iframe title="Map to Enshrine Pet Columbarium" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=<%= encodeURIComponent(c.contact.mapQuery) %>&output=embed"></iframe>

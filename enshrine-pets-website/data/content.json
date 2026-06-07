@@ -2,7 +2,8 @@
   "meta": {
     "title": "Enshrine 欣奉 — Pets Afterlife Services | Pet Cremation & Columbarium Singapore",
     "description": "Enshrine delivers dignified pet afterlife services in Singapore — private cremation, celebrant & religious services, sea scattering, and the first freehold pet columbarium at 47 Lorong 16 Geylang.",
-    "logo": "/images/logo.png"
+    "logo": "/images/logo.png",
+    "favicon": "/images/favicon.svg"
   },
   "nav": {
     "ctaLabel": "WhatsApp Us",
@@ -215,6 +216,13 @@
     "titleLead": "Visit or",
     "titleEm": "reach out",
     "cardTitle": "Enshrine Pet Columbarium",
+    "labels": {
+      "address": "Address",
+      "visiting": "Visiting",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "email": "Email"
+    },
     "address": "47 Lorong 16 Geylang, Singapore",
     "visiting": "24-hour access for niche owners",
     "phone": "+65 0000 0000 (placeholder)",
