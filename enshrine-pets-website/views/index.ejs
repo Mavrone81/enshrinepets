@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><%= c.meta.title %></title>
 <meta name="description" content="<%= c.meta.description %>">
+<%
+// Canonical domain (enshrinepet.com.sg). enshrinepet.sg 301-redirects here, and
+// each language self-canonicalises with hreflang alternates for the others.
+var siteUrl = (c.meta.siteUrl || 'https://enshrinepet.com.sg').replace(/\/$/, '');
+var urlFor = function(code){ return siteUrl + (code === 'en' ? '/' : '/?lang=' + code); };
+%>
+<link rel="canonical" href="<%= urlFor(lang) %>">
+<% languages.forEach(function(L){ %><link rel="alternate" hreflang="<%= L.code %>" href="<%= urlFor(L.code) %>">
+<% }); %><link rel="alternate" hreflang="x-default" href="<%= siteUrl %>/">
 <% if (c.meta.favicon) { %><link rel="icon" href="<%= c.meta.favicon %>"<%- /\.svg(\?|$)/i.test(c.meta.favicon) ? ' type="image/svg+xml"' : '' %>>
 <link rel="apple-touch-icon" href="<%= c.meta.favicon %>"><% } %>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
