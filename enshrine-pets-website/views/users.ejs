@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Users — Enshrine 欣奉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Enshrine <span>欣奉</span></div>
+    <nav>
+      <a href="/admin">Edit Content</a>
+      <a href="/admin/users" class="active">Users</a>
+      <a href="/" target="_blank">View Site ↗</a>
+      <span class="who">Signed in as <strong><%= currentUser.username %></strong></span>
+      <form method="post" action="/admin/logout" style="margin:0"><button type="submit">Log out</button></form>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>Admin users</h1>
+    <p>People who can log in to edit the website.</p>
+  </div>
+
+  <% if (flash) { %><div class="flash <%= flash.type %>"><%= flash.message %></div><% } %>
+
+  <div class="card">
+    <h2>Existing users</h2>
+    <p class="hint">Set a new password, or remove an account. You can't delete the account you're using or the last remaining admin.</p>
+    <table class="utable">
+      <thead><tr><th>Username</th><th>Change password</th><th>Remove</th></tr></thead>
+      <tbody>
+        <% users.forEach(function(u){ %>
+        <tr>
+          <td><strong><%= u.username %></strong><%= u.username === currentUser.username ? ' (you)' : '' %></td>
+          <td>
+            <form class="inline-form" method="post" action="/admin/users/password">
+              <input type="hidden" name="username" value="<%= u.username %>">
+              <input type="password" name="password" placeholder="New password" required>
+              <button type="submit" class="btn btn-ghost btn-sm">Update</button>
+            </form>
+          </td>
+          <td>
+            <% if (users.length > 1 && u.username !== currentUser.username) { %>
+            <form method="post" action="/admin/users/delete" onsubmit="return confirm('Remove user <%= u.username %>?')">
+              <input type="hidden" name="username" value="<%= u.username %>">
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+            <% } else { %><span style="color:#aab2cf">—</span><% } %>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Add a new user</h2>
+    <p class="hint">Create another login for a colleague.</p>
+    <form class="inline-form" method="post" action="/admin/users/add">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit" class="btn btn-gold btn-sm">Add user</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

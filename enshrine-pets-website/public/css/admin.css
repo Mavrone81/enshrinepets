@@ -1,0 +1,93 @@
+:root{
+  --navy:#101f63;
+  --navy-deep:#0a1448;
+  --gold:#c9a24b;
+  --gold-light:#e8cf8e;
+  --sky-light:#eef6fd;
+  --ink:#22305c;
+  --line:#dbe4f3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',system-ui,sans-serif;background:var(--sky-light);color:var(--ink);line-height:1.6}
+a{color:var(--navy);text-decoration:none}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;color:var(--navy);line-height:1.2}
+
+/* Top bar */
+.topbar{background:var(--navy-deep);color:#dce4ff;position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(201,162,75,.4)}
+.topbar-inner{max-width:1000px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.topbar .brand{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#fff;font-weight:600}
+.topbar .brand span{color:var(--gold-light);font-style:italic}
+.topbar nav{display:flex;gap:6px;margin-left:auto;align-items:center;flex-wrap:wrap}
+.topbar nav a,.topbar nav button{color:#dce4ff;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:8px;background:none;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.topbar nav a:hover{background:rgba(255,255,255,.08)}
+.topbar nav a.active{background:rgba(201,162,75,.18);border-color:rgba(201,162,75,.5);color:var(--gold-light)}
+.topbar nav .who{opacity:.7;text-transform:none;letter-spacing:0}
+
+.wrap{max-width:1000px;margin:0 auto;padding:28px 22px 80px}
+.page-head{margin-bottom:8px}
+.page-head h1{font-size:2.2rem}
+.page-head p{color:#56618a;max-width:680px}
+
+/* Flash */
+.flash{padding:12px 18px;border-radius:10px;margin:18px 0;font-size:.95rem}
+.flash.success{background:#e8f6ec;color:#1d7a3c;border:1px solid #b6e2c4}
+.flash.error{background:#fdecec;color:#b3261e;border:1px solid #f3c2c0}
+
+/* Section nav (sticky jump links) */
+.section-nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 26px}
+.section-nav a{background:#fff;border:1px solid var(--line);padding:7px 14px;border-radius:30px;font-size:.82rem;color:var(--navy)}
+.section-nav a:hover{border-color:var(--gold);color:var(--gold)}
+
+/* Cards / sections */
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-bottom:22px;scroll-margin-top:80px}
+.card>h2{font-size:1.6rem;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.card>.hint{color:#7a85aa;font-size:.88rem;margin-bottom:18px}
+
+fieldset{border:1px dashed var(--line);border-radius:12px;padding:16px 18px;margin:16px 0}
+fieldset>legend{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--navy);padding:0 8px;font-weight:600}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:#5b66a0;margin-bottom:6px;font-weight:500}
+.field input[type=text],.field textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-family:inherit;font-size:.97rem;color:var(--ink);background:#fcfdff}
+.field input[type=text]:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,75,.15)}
+.field textarea{min-height:90px;resize:vertical;line-height:1.6}
+
+/* Image field */
+.img-field{display:flex;gap:16px;align-items:flex-start;background:var(--sky-light);border:1px solid var(--line);border-radius:12px;padding:14px}
+.img-field .thumb{width:120px;height:90px;border-radius:8px;object-fit:cover;border:1px solid var(--line);background:#fff;flex:none}
+.img-field .img-body{flex:1}
+.img-field .img-body label{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:#5b66a0;margin-bottom:6px}
+.img-field input[type=file]{font-family:inherit;font-size:.9rem}
+.img-field .path{font-size:.78rem;color:#8a93b6;margin-top:6px;word-break:break-all}
+
+/* Sticky save bar */
+.savebar{position:sticky;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:14px 0;margin-top:8px;z-index:40}
+.savebar-inner{max-width:1000px;margin:0 auto;padding:0 22px;display:flex;justify-content:flex-end;gap:12px;align-items:center}
+
+.btn{display:inline-block;border:none;cursor:pointer;font-family:inherit;font-size:.9rem;letter-spacing:.06em;padding:11px 26px;border-radius:30px;font-weight:500;transition:all .2s}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy-deep)}
+.btn-gold:hover{box-shadow:0 6px 20px rgba(201,162,75,.4)}
+.btn-ghost{background:#fff;border:1px solid var(--line);color:var(--navy)}
+.btn-ghost:hover{border-color:var(--gold)}
+.btn-danger{background:#fdecec;color:#b3261e;border:1px solid #f3c2c0}
+.btn-danger:hover{background:#f8d7d5}
+.btn-sm{padding:7px 16px;font-size:.82rem}
+
+/* Login */
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy-deep),var(--navy) 60%,#1b2f87)}
+.login-card{background:#fff;border-radius:18px;padding:38px 36px;width:100%;max-width:380px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.login-card .brand{text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:var(--navy);margin-bottom:4px}
+.login-card .brand span{color:var(--gold);font-style:italic}
+.login-card .sub{text-align:center;color:#7a85aa;font-size:.9rem;margin-bottom:24px}
+.login-card .field{margin-bottom:16px}
+.login-card .btn{width:100%;text-align:center}
+
+/* Users table */
+.utable{width:100%;border-collapse:collapse;margin-top:8px}
+.utable th,.utable td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);font-size:.95rem}
+.utable th{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:#7a85aa;font-weight:600}
+.utable form{display:inline}
+.inline-form{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.inline-form input{border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-family:inherit}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:680px){.grid-2{grid-template-columns:1fr}.img-field{flex-direction:column}}

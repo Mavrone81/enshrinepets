@@ -1,0 +1,119 @@
+<%
+// --- helpers (server-rendered HTML strings) ---
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function humanize(k){return k.replace(/([A-Z])/g,' $1').replace(/[_\-]/g,' ').replace(/\s+/g,' ').trim().replace(/\b\w/g,m=>m.toUpperCase());}
+const LABELS={
+  headingLead:'Heading', headingEm:'Heading — highlighted word(s)',
+  titleLead:'Title', titleEm:'Title — highlighted word(s)',
+  imageAlt:'Image description (accessibility / SEO)', desc:'Description', lead:'Intro paragraph',
+  ctaLabel:'Button label', ctaLink:'Button link (URL)',
+  primaryBtnLabel:'Primary button label', primaryBtnLink:'Primary button link (URL)',
+  secondaryBtnLabel:'Secondary button label', secondaryBtnLink:'Secondary button link (URL)',
+  btnLabel:'Button label', btnLink:'Button link (URL)',
+  mapQuery:'Map location (address shown on Google Maps)', cardTitle:'Card title',
+  buildingImage:'Building photo', logo:'Logo', image:'Photo',
+  value:'Number / value', label:'Label', href:'Link (URL)', text:'Text',
+  title:'Page title (browser tab & search results)', description:'Search-engine description'
+};
+function labelFor(k){return LABELS[k] || humanize(k);}
+function singular(k){return k.replace(/ies$/,'y').replace(/s$/,'');}
+
+function imageHTML(val,path,key){
+  return `<div class="img-field"><img class="thumb" src="${esc(val)}" alt=""><div class="img-body"><label>${esc(labelFor(key))} — choose a file to replace</label><input type="file" name="${esc(path)}" accept="image/*"><div class="path">Current: ${esc(val)}</div></div></div>`;
+}
+function fieldHTML(val,path,key){
+  if(typeof val==='boolean') return '';
+  if(typeof val==='string'){
+    if(isImageKey(key)) return imageHTML(val,path,key);
+    const long = val.length>70 || /\n/.test(val);
+    const input = long
+      ? `<textarea name="${esc(path)}">${esc(val)}</textarea>`
+      : `<input type="text" name="${esc(path)}" value="${esc(val)}">`;
+    return `<div class="field"><label>${esc(labelFor(key))}</label>${input}</div>`;
+  }
+  if(Array.isArray(val)){
+    let h=`<fieldset><legend>${esc(labelFor(key))}</legend>`;
+    val.forEach((item,i)=>{
+      if(typeof item==='string'){
+        h+=`<div class="field"><label>${esc(labelFor(key))} ${i+1}</label><input type="text" name="${esc(path+'.'+i)}" value="${esc(item)}"></div>`;
+      } else {
+        h+=`<fieldset><legend>${esc(singular(humanize(key)))} ${i+1}</legend>${objHTML(item,path+'.'+i)}</fieldset>`;
+      }
+    });
+    return h+'</fieldset>';
+  }
+  return objHTML(val,path); // nested object
+}
+function objHTML(obj,path){
+  let h='';
+  for(const k of Object.keys(obj)) h+=fieldHTML(obj[k], path?path+'.'+k:k, k);
+  return h;
+}
+
+const SECTIONS={
+  meta:{title:'Site & SEO', hint:'Browser tab title, search-engine description and site logo.'},
+  nav:{title:'Navigation Bar', hint:'The menu links and the top-right button.'},
+  hero:{title:'Hero (Top Banner)', hint:'The large banner visitors see first.'},
+  about:{title:'About', hint:'Intro paragraph and the four highlight stats.'},
+  services:{title:'Our Services', hint:'The four service cards (text, lists and photos).'},
+  religious:{title:'Religious Rites', hint:'The four faith photos and their labels.'},
+  columbarium:{title:'Columbarium', hint:'Building photo, feature list and interior gallery.'},
+  niches:{title:'Niches', hint:'The single and family niche rows.'},
+  contact:{title:'Contact / Visit Us', hint:'Address, phone, email, button and map.'},
+  footer:{title:'Footer', hint:'Bottom logo and copyright line.'}
+};
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Edit Website | Enshrine 欣奉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Enshrine <span>欣奉</span></div>
+    <nav>
+      <a href="/admin" class="active">Edit Content</a>
+      <a href="/admin/users">Users</a>
+      <a href="/" target="_blank">View Site ↗</a>
+      <span class="who">Signed in as <strong><%= currentUser.username %></strong></span>
+      <form method="post" action="/admin/logout" style="margin:0"><button type="submit">Log out</button></form>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>Edit your website</h1>
+    <p>Change any wording and upload new photos below. Each section saves on its own — click its <strong>Save</strong> button after editing, then open <em>View Site</em> to see the result.</p>
+  </div>
+
+  <% if (flash) { %><div class="flash <%= flash.type %>"><%= flash.message %></div><% } %>
+
+  <div class="section-nav">
+    <% Object.keys(SECTIONS).forEach(function(k){ if(c[k]){ %>
+      <a href="#<%= k %>"><%= SECTIONS[k].title %></a>
+    <% }}); %>
+  </div>
+
+  <% Object.keys(SECTIONS).forEach(function(k){ if(c[k]){ %>
+    <form class="card" id="<%= k %>" method="post" action="/admin/save" enctype="multipart/form-data">
+      <input type="hidden" name="_section" value="<%= k %>">
+      <h2><%= SECTIONS[k].title %></h2>
+      <p class="hint"><%= SECTIONS[k].hint %></p>
+      <%- objHTML(c[k], k) %>
+      <div style="text-align:right;margin-top:10px">
+        <button type="submit" class="btn btn-gold">Save <%= SECTIONS[k].title %></button>
+      </div>
+    </form>
+  <% }}); %>
+</div>
+
+</body>
+</html>

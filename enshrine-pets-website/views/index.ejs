@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= c.meta.title %></title>
+<meta name="description" content="<%= c.meta.description %>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo"><img src="<%= c.meta.logo %>" alt="Enshrine 欣奉"></a>
+    <ul class="nav-links">
+      <% c.nav.links.forEach(function(l){ %>
+        <li><a href="<%= l.href %>"><%= l.label %></a></li>
+      <% }); %>
+    </ul>
+    <a class="btn btn-gold nav-cta" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <img class="hero-logo" src="<%= c.hero.logo %>" alt="Enshrine 欣奉 logo">
+      <h1><%= c.hero.headingLead %> <em><%= c.hero.headingEm %></em></h1>
+      <p><%= c.hero.paragraph %></p>
+      <div class="hero-values">
+        <% c.hero.values.forEach(function(v){ %><span><%= v %></span><% }); %>
+      </div>
+      <a href="<%= c.hero.primaryBtnLink %>" class="btn btn-gold"><%= c.hero.primaryBtnLabel %></a>&nbsp;&nbsp;
+      <a href="<%= c.hero.secondaryBtnLink %>" class="btn btn-outline"><%= c.hero.secondaryBtnLabel %></a>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="<%= c.hero.image %>" alt="<%= c.hero.imageAlt %>">
+    </div>
+  </div>
+</header>
+
+<section class="about">
+  <div class="container about-grid">
+    <div>
+      <span class="eyebrow"><%= c.about.eyebrow %></span>
+      <h2 class="section-title"><%= c.about.titleLead %> <em><%= c.about.titleEm %></em></h2>
+      <div class="gold-rule"></div>
+      <p class="lead"><%= c.about.lead %></p>
+    </div>
+    <div class="about-stats">
+      <% c.about.stats.forEach(function(s){ %>
+        <div class="stat"><b><%= s.value %></b><span><%= s.label %></span></div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <span class="eyebrow"><%= c.services.eyebrow %></span>
+    <h2 class="section-title"><%= c.services.titleLead %> <em><%= c.services.titleEm %></em></h2>
+    <div class="gold-rule"></div>
+    <p class="lead"><%= c.services.lead %></p>
+    <div class="svc-grid">
+      <% c.services.cards.forEach(function(card){ %>
+      <div class="svc-card">
+        <img src="<%= card.image %>" alt="<%= card.imageAlt %>">
+        <div class="svc-body">
+          <h3><%= card.title %></h3>
+          <p><%= card.desc %></p>
+          <ul>
+            <% card.items.forEach(function(it){ %><li><%= it %></li><% }); %>
+          </ul>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="religious" id="religious">
+  <div class="container">
+    <span class="eyebrow"><%= c.religious.eyebrow %></span>
+    <h2 class="section-title"><%= c.religious.titleLead %> <em><%= c.religious.titleEm %></em></h2>
+    <div class="gold-rule"></div>
+    <p class="lead"><%= c.religious.lead %></p>
+    <div class="faith-grid">
+      <% c.religious.faiths.forEach(function(f){ %>
+        <div class="faith-card"><img src="<%= f.image %>" alt="<%= f.imageAlt %>"><span><%= f.label %></span></div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="colum" id="columbarium">
+  <div class="container">
+    <div class="colum-grid">
+      <img class="building" src="<%= c.columbarium.buildingImage %>" alt="<%= c.columbarium.buildingImageAlt %>">
+      <div>
+        <span class="badge"><%= c.columbarium.badge %></span>
+        <h2 class="section-title"><%= c.columbarium.titleLead %> <em><%= c.columbarium.titleEm %></em></h2>
+        <div class="gold-rule"></div>
+        <p class="lead"><%- c.columbarium.lead %></p>
+        <div class="feat-list">
+          <% c.columbarium.features.forEach(function(ft){ %>
+            <div class="feat"><%= ft %></div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+    <div class="gallery">
+      <% c.columbarium.gallery.forEach(function(g){ %>
+        <img src="<%= g.image %>" alt="<%= g.imageAlt %>">
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="niches" id="niches">
+  <div class="container">
+    <span class="eyebrow"><%= c.niches.eyebrow %></span>
+    <h2 class="section-title"><%= c.niches.titleLead %> <em><%= c.niches.titleEm %></em></h2>
+    <div class="gold-rule"></div>
+    <% c.niches.rows.forEach(function(row){ %>
+    <div class="niche-row<%= row.flip ? ' flip' : '' %>">
+      <% if (!row.flip) { %>
+        <img src="<%= row.image %>" alt="<%= row.imageAlt %>">
+        <div class="txt">
+          <h3><%= row.titleLead %> <span><%= row.titleEm %></span></h3>
+          <p><%= row.desc %></p>
+        </div>
+      <% } else { %>
+        <div class="txt">
+          <h3><%= row.titleLead %> <span><%= row.titleEm %></span></h3>
+          <p><%= row.desc %></p>
+        </div>
+        <img src="<%= row.image %>" alt="<%= row.imageAlt %>">
+      <% } %>
+    </div>
+    <% }); %>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <span class="eyebrow"><%= c.contact.eyebrow %></span>
+    <h2 class="section-title"><%= c.contact.titleLead %> <em><%= c.contact.titleEm %></em></h2>
+    <div class="gold-rule"></div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3><%= c.contact.cardTitle %></h3>
+        <div class="contact-line"><b>Address</b><span><%= c.contact.address %></span></div>
+        <div class="contact-line"><b>Visiting</b><span><%= c.contact.visiting %></span></div>
+        <div class="contact-line"><b>Phone</b><span><%= c.contact.phone %></span></div>
+        <div class="contact-line"><b>WhatsApp</b><span><%= c.contact.whatsapp %></span></div>
+        <div class="contact-line"><b>Email</b><span><%= c.contact.email %></span></div>
+        <a class="btn btn-gold" href="<%= c.contact.btnLink %>"><%= c.contact.btnLabel %></a>
+      </div>
+      <iframe title="Map to Enshrine Pet Columbarium" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=<%= encodeURIComponent(c.contact.mapQuery) %>&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="<%= c.footer.logo %>" alt="Enshrine 欣奉">
+  <p><%= c.footer.text %></p>
+</footer>
+
+</body>
+</html>
