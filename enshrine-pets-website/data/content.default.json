@@ -34,8 +34,8 @@
   },
   "hero": {
     "logo": "/images/logo.png",
-    "headingLead": "A dignified farewell for your",
-    "headingEm": "dearest companion",
+    "headingLead": "Farewell with Grace,",
+    "headingEm": "Care with Devotion",
     "paragraph": "Enshrine commits to deliver dignified afterlife services to your dearly departed, catering to every family's needs and concerns — so you can grieve, remember, and say goodbye with grace.",
     "values": [
       "Trust",
@@ -61,8 +61,8 @@
         "label": "Pet Niches"
       },
       {
-        "value": "24 hr",
-        "label": "Visiting Access"
+        "value": "Visit",
+        "label": "By Appointment"
       },
       {
         "value": "Freehold",
@@ -165,7 +165,7 @@
     "features": [
       "Freehold, four-storey building",
       "More than 10,000 pet niches",
-      "24-hour visiting access",
+      "Visiting by appointment",
       "All-round CCTV monitoring",
       "Fully air-conditioned interiors",
       "Pets' play area on every level — bring your living pets along"
@@ -225,7 +225,7 @@
       "email": "Email"
     },
     "address": "47 Lorong 16 Geylang, Singapore",
-    "visiting": "24-hour access for niche owners",
+    "visiting": "By appointment for niche owners",
     "phone": "+65 0000 0000 (placeholder)",
     "whatsapp": "+65 0000 0000 (placeholder)",
     "email": "hello@enshrine.sg (placeholder)",

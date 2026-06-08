@@ -6,18 +6,33 @@
   "nav": {
     "ctaLabel": "WhatsApp Kami",
     "links": [
-      { "label": "Perkhidmatan" },
-      { "label": "Upacara Keagamaan" },
-      { "label": "Kolumbarium" },
-      { "label": "Nic" },
-      { "label": "Lawati Kami" }
+      {
+        "label": "Perkhidmatan"
+      },
+      {
+        "label": "Upacara Keagamaan"
+      },
+      {
+        "label": "Kolumbarium"
+      },
+      {
+        "label": "Nic"
+      },
+      {
+        "label": "Lawati Kami"
+      }
     ]
   },
   "hero": {
-    "headingLead": "Selamat tinggal yang bermaruah untuk",
-    "headingEm": "teman tersayang anda",
+    "headingLead": "Perpisahan penuh kasih,",
+    "headingEm": "penjagaan penuh bakti",
     "paragraph": "Enshrine komited untuk menyampaikan perkhidmatan selepas kehidupan yang bermaruah kepada haiwan kesayangan anda yang telah pergi, memenuhi keperluan dan kebimbangan setiap keluarga — agar anda dapat berkabung, mengenang, dan mengucapkan selamat tinggal dengan penuh hormat.",
-    "values": ["Amanah", "Hormat", "Prihatin", "Komitmen"],
+    "values": [
+      "Amanah",
+      "Hormat",
+      "Prihatin",
+      "Komitmen"
+    ],
     "primaryBtnLabel": "Perkhidmatan Kami",
     "secondaryBtnLabel": "Kolumbarium",
     "imageAlt": "Seekor kucing dan anjing berehat dengan tenang bersama"
@@ -28,10 +43,22 @@
     "titleEm": "selepas kehidupan",
     "lead": "Kami memahami betapa menyedihkannya kehilangan teman tersayang. Biarkan Enshrine menguruskan segala pengaturan dan memberi anda ruang untuk berkabung serta mengucapkan selamat tinggal terakhir. Dari pembakaran mayat dan pengebumian laut hingga kolumbarium, cenderamata dan perkhidmatan keagamaan — setiap perincian diuruskan dengan penuh maruah.",
     "stats": [
-      { "value": "10,000+", "label": "Nic Haiwan" },
-      { "value": "24 jam", "label": "Akses Lawatan" },
-      { "value": "Pegangan Bebas", "label": "Pertama di Singapura" },
-      { "value": "4", "label": "Agama Dilayani" }
+      {
+        "value": "10,000+",
+        "label": "Nic Haiwan"
+      },
+      {
+        "value": "Lawatan",
+        "label": "Dengan Temujanji"
+      },
+      {
+        "value": "Pegangan Bebas",
+        "label": "Pertama di Singapura"
+      },
+      {
+        "value": "4",
+        "label": "Agama Dilayani"
+      }
     ]
   },
   "services": {
@@ -89,10 +116,22 @@
     "titleEm": "keagamaan",
     "lead": "Kami menyediakan perkhidmatan pengebumian keagamaan merentasi empat kepercayaan, setiap satu dijalankan dengan upacara dan penghormatan yang sewajarnya.",
     "faiths": [
-      { "imageAlt": "Persediaan pembakaran haiwan Buddha", "label": "Buddha" },
-      { "imageAlt": "Persediaan pembakaran haiwan Tao", "label": "Tao" },
-      { "imageAlt": "Persediaan pembakaran haiwan Kristian", "label": "Kristian" },
-      { "imageAlt": "Persediaan pembakaran haiwan Katolik", "label": "Katolik" }
+      {
+        "imageAlt": "Persediaan pembakaran haiwan Buddha",
+        "label": "Buddha"
+      },
+      {
+        "imageAlt": "Persediaan pembakaran haiwan Tao",
+        "label": "Tao"
+      },
+      {
+        "imageAlt": "Persediaan pembakaran haiwan Kristian",
+        "label": "Kristian"
+      },
+      {
+        "imageAlt": "Persediaan pembakaran haiwan Katolik",
+        "label": "Katolik"
+      }
     ]
   },
   "columbarium": {
@@ -104,16 +143,24 @@
     "features": [
       "Bangunan pegangan bebas empat tingkat",
       "Lebih 10,000 nic haiwan",
-      "Akses lawatan 24 jam",
+      "Lawatan dengan temujanji",
       "Pemantauan CCTV menyeluruh",
       "Ruang dalaman berhawa dingin sepenuhnya",
       "Kawasan bermain haiwan di setiap tingkat — bawa haiwan hidup anda sekali"
     ],
     "gallery": [
-      { "imageAlt": "Koridor dalaman kolumbarium" },
-      { "imageAlt": "Dinding nic kolumbarium dengan pencahayaan istimewa" },
-      { "imageAlt": "Lobi lif kolumbarium" },
-      { "imageAlt": "Kawasan rehat dan bermain haiwan" }
+      {
+        "imageAlt": "Koridor dalaman kolumbarium"
+      },
+      {
+        "imageAlt": "Dinding nic kolumbarium dengan pencahayaan istimewa"
+      },
+      {
+        "imageAlt": "Lobi lif kolumbarium"
+      },
+      {
+        "imageAlt": "Kawasan rehat dan bermain haiwan"
+      }
     ]
   },
   "niches": {
@@ -147,7 +194,7 @@
       "whatsapp": "WhatsApp",
       "email": "E-mel"
     },
-    "visiting": "Akses 24 jam untuk pemilik nic",
+    "visiting": "Dengan temujanji untuk pemilik nic",
     "btnLabel": "Bercakap Dengan Penasihat"
   },
   "footer": {
