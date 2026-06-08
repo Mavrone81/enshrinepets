@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "title": "Enshrine 欣奉 — Pets Afterlife Services | Pet Cremation & Columbarium Singapore",
+    "description": "Enshrine delivers dignified pet afterlife services in Singapore — private cremation, celebrant & religious services, sea scattering, and the first freehold pet columbarium at 47 Lorong 16 Geylang.",
+    "logo": "/images/logo.png",
+    "favicon": "/images/favicon.svg",
+    "siteUrl": "https://enshrinepet.com.sg"
+  },
+  "nav": {
+    "ctaLabel": "WhatsApp Us",
+    "ctaLink": "https://wa.me/6500000000",
+    "links": [
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Religious Rites",
+        "href": "#religious"
+      },
+      {
+        "label": "Columbarium",
+        "href": "#columbarium"
+      },
+      {
+        "label": "Niches",
+        "href": "#niches"
+      },
+      {
+        "label": "Visit Us",
+        "href": "#contact"
+      }
+    ]
+  },
+  "hero": {
+    "logo": "/images/logo.png",
+    "headingLead": "A dignified farewell for your",
+    "headingEm": "dearest companion",
+    "paragraph": "Enshrine commits to deliver dignified afterlife services to your dearly departed, catering to every family's needs and concerns — so you can grieve, remember, and say goodbye with grace.",
+    "values": [
+      "Trust",
+      "Respect",
+      "Care",
+      "Commitment"
+    ],
+    "primaryBtnLabel": "Our Services",
+    "primaryBtnLink": "#services",
+    "secondaryBtnLabel": "The Columbarium",
+    "secondaryBtnLink": "#columbarium",
+    "image": "/images/hero-pets.jpg",
+    "imageAlt": "A cat and dog resting peacefully together"
+  },
+  "about": {
+    "eyebrow": "About Enshrine 欣奉",
+    "titleLead": "One-stop pets",
+    "titleEm": "afterlife care",
+    "lead": "We understand how distressing it is to lose a beloved companion. Let Enshrine handle all the arrangements and hold the space for you to grieve and bid your final farewell. From cremation and sea burial to columbarium, keepsakes and religious services — every detail is cared for with dignity.",
+    "stats": [
+      {
+        "value": "10,000+",
+        "label": "Pet Niches"
+      },
+      {
+        "value": "24 hr",
+        "label": "Visiting Access"
+      },
+      {
+        "value": "Freehold",
+        "label": "First in Singapore"
+      },
+      {
+        "value": "4",
+        "label": "Faiths Served"
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "What We Offer",
+    "titleLead": "Our",
+    "titleEm": "services",
+    "lead": "A complete pets afterlife service — cremation, sea burial, columbarium, keepsakes and religious rites — delivered with trust, respect, care and commitment.",
+    "cards": [
+      {
+        "image": "/images/cremation-hall.jpg",
+        "imageAlt": "Private cremation farewell hall",
+        "title": "Private Pet Cremation",
+        "desc": "Single pet private cremation allows family and friends to bid their final farewell privately and witness the process throughout.",
+        "items": [
+          "Pick-up of your beloved pet",
+          "Floral arrangements",
+          "Complimentary urn & cremation certificate",
+          "Optional bone picking, should you wish to personally inter your pet"
+        ]
+      },
+      {
+        "image": "/images/celebrant.jpg",
+        "imageAlt": "Pet celebrant service — final touch tribute with flowers",
+        "title": "Pet Celebrant Service",
+        "desc": "A 30-minute prayer and eulogy session conducted with Final Touch, Tribute and Final Farewell — honouring the bond you shared.",
+        "items": [
+          "Celebrant-led farewell ceremony",
+          "Religious options: Buddhist, Taoist, Christian & Catholic",
+          "Video montage capturing your pet's precious last moments"
+        ]
+      },
+      {
+        "image": "/images/sea-scattering.jpg",
+        "imageAlt": "Private sea scattering of pet cremains",
+        "title": "Private Sea Scattering",
+        "desc": "Send your beloved pet's cremains to nature personally, with an optional religious ritual during the sea scattering event.",
+        "items": [
+          "Boat chartered solely for your family",
+          "Arrangements with the respective religious leader",
+          "Our advisors accompany and guide you throughout"
+        ]
+      },
+      {
+        "image": "/images/single-niche.jpg",
+        "imageAlt": "Columbarium niches with customised bamboo urns",
+        "title": "Columbarium & Keepsakes",
+        "desc": "After a dignified farewell, honour your pet who has crossed the rainbow bridge with a permanent resting place at our Geylang columbarium — or keep them close with a personalised keepsake.",
+        "items": [
+          "Single & family pet niches",
+          "Customised bamboo urns with photo, name & dates",
+          "Memorial keepsakes"
+        ]
+      }
+    ]
+  },
+  "religious": {
+    "eyebrow": "Honouring Every Faith",
+    "titleLead": "Religious",
+    "titleEm": "cremation services",
+    "lead": "We provide religious funeral services across four faiths, each conducted with the appropriate rites and reverence.",
+    "faiths": [
+      {
+        "image": "/images/buddhist.jpg",
+        "imageAlt": "Buddhist pet cremation setup",
+        "label": "Buddhist"
+      },
+      {
+        "image": "/images/taoist.jpg",
+        "imageAlt": "Taoist pet cremation setup",
+        "label": "Taoist"
+      },
+      {
+        "image": "/images/christian.jpg",
+        "imageAlt": "Christian pet cremation setup",
+        "label": "Christian"
+      },
+      {
+        "image": "/images/catholic.jpg",
+        "imageAlt": "Catholic pet cremation setup",
+        "label": "Catholic"
+      }
+    ]
+  },
+  "columbarium": {
+    "badge": "The First & Only Freehold Pet Columbarium in Singapore",
+    "titleLead": "A place of",
+    "titleEm": "remembrance",
+    "lead": "More than just a resting place. Enshrine's newly built pet columbarium at <strong>47 Lorong 16 Geylang</strong> is a freehold, four-storey building with more than 10,000 pet niches — fully air-conditioned for a quiet, comfortable and elegant ambiance.",
+    "buildingImage": "/images/building.jpg",
+    "buildingImageAlt": "Enshrine pet columbarium building at 47 Lorong 16 Geylang",
+    "features": [
+      "Freehold, four-storey building",
+      "More than 10,000 pet niches",
+      "24-hour visiting access",
+      "All-round CCTV monitoring",
+      "Fully air-conditioned interiors",
+      "Pets' play area on every level — bring your living pets along"
+    ],
+    "gallery": [
+      {
+        "image": "/images/interior-1.jpg",
+        "imageAlt": "Columbarium interior corridor"
+      },
+      {
+        "image": "/images/interior-2.jpg",
+        "imageAlt": "Columbarium niche wall with feature lighting"
+      },
+      {
+        "image": "/images/interior-3.jpg",
+        "imageAlt": "Columbarium lift lobby"
+      },
+      {
+        "image": "/images/play-area.jpg",
+        "imageAlt": "Pets' relaxation and play area"
+      }
+    ]
+  },
+  "niches": {
+    "eyebrow": "A Personal Memorial",
+    "titleLead": "Choose their",
+    "titleEm": "resting place",
+    "rows": [
+      {
+        "image": "/images/single-niche.jpg",
+        "imageAlt": "Single pet niche towers",
+        "titleLead": "Single",
+        "titleEm": "Niche",
+        "desc": "Each single niche accommodates the ashes of one pet in a personalised, respectful memorial space. Covered with transparent material, it lets you see through to your beloved pet's urn directly. Every bamboo urn is customised with your pet's photo, name and dates — preserving a visual connection that brings comfort and solace during visits.",
+        "flip": false
+      },
+      {
+        "image": "/images/family-niche.jpg",
+        "imageAlt": "Family pet niche wall with personalised plaques",
+        "titleLead": "Family Pet",
+        "titleEm": "Niche",
+        "desc": "Designed to accommodate the ashes of multiple pets — up to 32 — with no divider, so your pets stay together even in their afterlife, just as they were in life. A personalised plaque bearing your pets' individual photos or a customised family photo, with their names and dates, creates a lasting legacy that honours their memories together.",
+        "flip": true
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "We're Here For You",
+    "titleLead": "Visit or",
+    "titleEm": "reach out",
+    "cardTitle": "Enshrine Pet Columbarium",
+    "labels": {
+      "address": "Address",
+      "visiting": "Visiting",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "email": "Email"
+    },
+    "address": "47 Lorong 16 Geylang, Singapore",
+    "visiting": "24-hour access for niche owners",
+    "phone": "+65 0000 0000 (placeholder)",
+    "whatsapp": "+65 0000 0000 (placeholder)",
+    "email": "hello@enshrine.sg (placeholder)",
+    "btnLabel": "Speak With An Advisor",
+    "btnLink": "https://wa.me/6500000000",
+    "mapQuery": "47 Lorong 16 Geylang, Singapore"
+  },
+  "footer": {
+    "logo": "/images/logo.png",
+    "text": "© 2026 Enshrine Pets Afterlife Services · 47 Lorong 16 Geylang, Singapore · Trust § Respect § Care § Commitment"
+  }
+}
