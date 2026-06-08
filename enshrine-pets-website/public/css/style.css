@@ -130,6 +130,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,20,72,.92
 .contact .btn{margin-top:10px}
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
 
+/* FLOATING CTA */
+.float-cta{position:fixed;right:24px;bottom:24px;z-index:200;display:inline-flex;align-items:center;gap:10px;padding:14px 22px 14px 18px;border-radius:40px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy-deep);font-family:'Jost',sans-serif;font-size:.86rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;box-shadow:0 10px 30px rgba(10,20,72,.35),0 0 0 6px rgba(201,162,75,.18);transition:transform .25s,box-shadow .25s;animation:float-cta-pulse 2.6s ease-in-out infinite}
+.float-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 40px rgba(10,20,72,.45),0 0 0 8px rgba(201,162,75,.22);animation:none}
+.float-cta-icon{width:24px;height:24px;flex:none;fill:var(--navy-deep)}
+.float-cta-label{white-space:nowrap}
+@keyframes float-cta-pulse{0%,100%{box-shadow:0 10px 30px rgba(10,20,72,.35),0 0 0 0 rgba(201,162,75,.35)}50%{box-shadow:0 10px 30px rgba(10,20,72,.35),0 0 0 10px rgba(201,162,75,0)}}
+@media(max-width:600px){.float-cta{right:16px;bottom:16px;padding:14px}.float-cta-label{display:none}}
+@media(prefers-reduced-motion:reduce){.float-cta{animation:none}}
+
 /* FOOTER */
 footer{background:#070e35;padding:36px 0;text-align:center}
 footer img{height:30px;margin:0 auto 12px;opacity:.9}
