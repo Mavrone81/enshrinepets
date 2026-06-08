@@ -135,13 +135,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,11,60,.95)
 .contact .btn{margin-top:10px}
 @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
 
-/* FLOATING CTA */
-.float-cta{position:fixed;right:24px;bottom:24px;z-index:200;display:inline-flex;align-items:center;gap:10px;padding:14px 22px 14px 18px;border-radius:40px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy-deep);font-family:'Jost',sans-serif;font-size:.86rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;box-shadow:0 10px 30px rgba(5,11,60,.4),0 0 0 6px rgba(216,178,90,.18);transition:transform .25s,box-shadow .25s;animation:float-cta-pulse 2.6s ease-in-out infinite}
+/* FLOATING CONTACT BUTTONS */
+.float-stack{position:fixed;right:24px;bottom:24px;z-index:200;display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.float-mini{width:52px;height:52px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy-deep);box-shadow:0 8px 22px rgba(5,11,60,.4);transition:transform .25s,box-shadow .25s}
+.float-mini svg{width:24px;height:24px;fill:var(--navy-deep)}
+.float-mini:hover{transform:translateY(-3px) scale(1.06);box-shadow:0 12px 30px rgba(5,11,60,.5)}
+.float-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 22px 14px 18px;border-radius:40px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy-deep);font-family:'Jost',sans-serif;font-size:.86rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;box-shadow:0 10px 30px rgba(5,11,60,.4),0 0 0 6px rgba(216,178,90,.18);transition:transform .25s,box-shadow .25s;animation:float-cta-pulse 2.6s ease-in-out infinite}
 .float-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 40px rgba(5,11,60,.5),0 0 0 8px rgba(216,178,90,.22);animation:none}
 .float-cta-icon{width:24px;height:24px;flex:none;fill:var(--navy-deep)}
 .float-cta-label{white-space:nowrap}
 @keyframes float-cta-pulse{0%,100%{box-shadow:0 10px 30px rgba(5,11,60,.4),0 0 0 0 rgba(216,178,90,.35)}50%{box-shadow:0 10px 30px rgba(5,11,60,.4),0 0 0 10px rgba(216,178,90,0)}}
-@media(max-width:600px){.float-cta{right:16px;bottom:16px;padding:14px}.float-cta-label{display:none}}
+@media(max-width:600px){.float-stack{right:16px;bottom:16px;gap:10px}.float-cta{padding:14px}.float-cta-label{display:none}.float-mini{width:48px;height:48px}}
 @media(prefers-reduced-motion:reduce){.float-cta{animation:none}}
 
 /* FOOTER */
