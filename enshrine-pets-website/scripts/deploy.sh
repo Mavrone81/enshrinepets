@@ -11,6 +11,11 @@
 # data/users.json, public/uploads/*) are git-ignored, so they are NOT touched.
 set -euo pipefail
 
+# Make node/npm/pm2 available when invoked from a minimal environment (cron).
+export NVM_DIR="${NVM_DIR:-/root/.nvm}"
+# shellcheck disable=SC1091
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" >/dev/null 2>&1 || true
+
 REPO_DIR="/root/enshrinepets"
 APP_DIR="$REPO_DIR/enshrine-pets-website"
 PM2_NAME="enshrinepets"
