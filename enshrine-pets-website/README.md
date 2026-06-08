@@ -73,6 +73,20 @@ This is a standard Node/Express app. It runs on Render, Railway, Fly.io, a VPS, 
 Use a persistent disk (or database) for `data/` and `public/uploads/` so edits and uploaded
 images survive restarts/redeploys.
 
+### Production (current setup)
+
+Live on a DigitalOcean droplet, served by PM2 (process `enshrinepets`, port 20101) behind
+nginx + Certbot at `https://enshrinepet.com.sg`.
+
+**Auto-deploy:** a per-minute cron job on the droplet runs `scripts/auto-pull.sh`, which checks
+GitHub for new commits on `main` and runs `scripts/deploy.sh` when there are any
+(`git reset --hard origin/main`, `npm ci`, `pm2 reload`). So **pushing to `main` goes live in
+about a minute** — no manual step. Logs: `/var/log/enshrine-deploy.log` on the server.
+
+Live, admin-editable files (`data/content.json`, `data/i18n/*.json`, `data/users.json`,
+`public/uploads/*`) are git-ignored and seeded from the `*.default.json` templates on first boot,
+so deploys never overwrite content edited through the live admin panel.
+
 ## Security notes
 
 - Passwords are stored hashed (bcrypt). `data/users.json` is git-ignored.
