@@ -1,5 +1,17 @@
 node_modules/
-data/users.json
 .env
 .DS_Store
 npm-debug.log*
+
+# Admin accounts (hashed) — created on first run, never committed
+data/users.json
+
+# Live, admin-editable content. Seeded from the *.default.json templates on
+# first boot; kept out of git so live admin edits persist across deploys.
+data/content.json
+data/i18n/*.json
+!data/i18n/*.default.json
+
+# Uploaded images (admin uploads) — keep the folder, ignore its contents
+public/uploads/*
+!public/uploads/.gitkeep

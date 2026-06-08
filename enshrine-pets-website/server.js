@@ -2,6 +2,7 @@
  * Enshrine 欣奉 — Pets Afterlife Services
  * Public website + admin backend (editable copy + image uploads, multi-user login).
  */
+require('dotenv').config();
 const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
@@ -101,6 +102,27 @@ function writeJSON(file, obj) {
 }
 const loadContent = () => readJSON(CONTENT_FILE, {});
 const saveContent = (c) => writeJSON(CONTENT_FILE, c);
+
+// Seed the live, admin-editable files from their *.default templates on first
+// boot. The live files (content.json, i18n/<code>.json) are git-ignored and
+// persist on the server, so admin edits survive deploys; a fresh checkout with
+// no live files yet starts from the production copy shipped as templates.
+function ensureContentSeed() {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+  fs.mkdirSync(I18N_DIR, { recursive: true });
+  fs.mkdirSync(UPLOAD_DIR, { recursive: true });
+  const seed = (live, template) => {
+    if (!fs.existsSync(live) && fs.existsSync(template)) {
+      fs.copyFileSync(template, live);
+      console.log('  seeded ' + path.relative(__dirname, live) + ' from template');
+    }
+  };
+  seed(CONTENT_FILE, path.join(DATA_DIR, 'content.default.json'));
+  for (const code of LANG_CODES) {
+    if (code === DEFAULT_LANG) continue;
+    seed(overlayPath(code), path.join(I18N_DIR, `${code}.default.json`));
+  }
+}
 
 // Seed an initial admin user if none exist.
 function ensureUsers() {
@@ -330,8 +352,8 @@ app.use((err, req, res, next) => {
 });
 
 // ---------------------------------------------------------------------------
+ensureContentSeed();
 ensureUsers();
-fs.mkdirSync(I18N_DIR, { recursive: true });
 app.listen(PORT, () => {
   console.log(`\n  Enshrine website running:`);
   console.log(`    Public site : http://localhost:${PORT}/`);
