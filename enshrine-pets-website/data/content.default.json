@@ -747,6 +747,7 @@
     ],
     "humanLabel": "Chat on WhatsApp",
     "closeLabel": "Close",
-    "backLabel": "More questions"
+    "backLabel": "More questions",
+    "minimiseLabel": "Minimise"
   }
 }

@@ -234,8 +234,8 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .chatbot-head-txt{display:flex;flex-direction:column;line-height:1.25}
 .chatbot-head-txt strong{font-family:'Noto Serif','Noto Serif SC',serif;font-size:1.05rem}
 .chatbot-head-txt span{font-size:.76rem;color:#cdd9f7}
-.chatbot-close{background:none;border:none;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;opacity:.85;padding:0 4px}
-.chatbot-close:hover{opacity:1}
+.chatbot-min{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;background:rgba(255,255,255,.15);border:none;border-radius:8px;color:#fff;font-size:1.5rem;font-weight:700;line-height:1;cursor:pointer;opacity:.9;transition:background .2s,opacity .2s}
+.chatbot-min:hover{opacity:1;background:rgba(255,255,255,.28)}
 .chatbot-body{padding:16px;overflow-y:auto;flex:1;background:var(--sky-pale)}
 .chatbot-msg{font-size:.9rem;line-height:1.5}
 .chatbot-msg.bot{background:#fff;border:1px solid rgba(20,80,207,.12);border-radius:4px 16px 16px 16px;padding:12px 14px;margin-bottom:14px;color:var(--ink-soft);box-shadow:0 4px 14px rgba(20,80,207,.06)}

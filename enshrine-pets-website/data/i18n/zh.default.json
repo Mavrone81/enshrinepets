@@ -676,6 +676,7 @@
     ],
     "humanLabel": "透过 WhatsApp 咨询",
     "closeLabel": "关闭",
-    "backLabel": "更多问题"
+    "backLabel": "更多问题",
+    "minimiseLabel": "最小化"
   }
 }

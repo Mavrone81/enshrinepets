@@ -9,7 +9,7 @@
   <div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-label="<%= cb.title %>" hidden>
     <div class="chatbot-head">
       <div class="chatbot-head-txt"><strong><%= cb.title %></strong><span><%= cb.subtitle %></span></div>
-      <button class="chatbot-close" id="chatbot-close" aria-label="<%= cb.closeLabel %>">&times;</button>
+      <button class="chatbot-min" id="chatbot-close" aria-label="<%= cb.minimiseLabel || cb.closeLabel || 'Minimise' %>" title="<%= cb.minimiseLabel || cb.closeLabel || 'Minimise' %>">&minus;</button>
     </div>
 
     <div class="chatbot-body" id="chatbot-body">
