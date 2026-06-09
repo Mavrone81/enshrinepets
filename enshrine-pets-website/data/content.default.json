@@ -701,5 +701,52 @@
       "ctaTitle": "Speak with an advisor",
       "ctaText": "Call or WhatsApp us for immediate, compassionate assistance."
     }
+  },
+  "chatbot": {
+    "launchLabel": "Chat with us",
+    "title": "Enshrine Assistant",
+    "subtitle": "We're here to help",
+    "greeting": "Hello 🐾 How can we help you today? Tap a topic below, or message us on WhatsApp for anything else.",
+    "items": [
+      {
+        "q": "Private pet cremation",
+        "a": "We provide single, private pet cremation — your pet is cremated alone, with respectful pick-up, a floral farewell, and a complimentary urn and certificate. You are welcome to witness the process.",
+        "link": "/pet-cremation-singapore",
+        "linkLabel": "Read about cremation"
+      },
+      {
+        "q": "Columbarium & niches",
+        "a": "Our freehold pet columbarium at 74 Lorong 6 Geylang has 10,000+ air-conditioned niches — single niches, and family niches for up to 32 pets together.",
+        "link": "/pet-columbarium-singapore",
+        "linkLabel": "About the columbarium"
+      },
+      {
+        "q": "Sea scattering",
+        "a": "We charter a boat solely for your family for a private sea scattering, with an optional Buddhist, Taoist, Christian or Catholic ritual.",
+        "link": "/pet-sea-scattering-singapore",
+        "linkLabel": "About sea scattering"
+      },
+      {
+        "q": "Ceremonies & religious rites",
+        "a": "We offer celebrant-led and religious farewells across four faiths — Buddhist, Taoist, Christian and Catholic — with an optional video tribute.",
+        "link": "/pet-celebrant-religious-services",
+        "linkLabel": "About ceremonies"
+      },
+      {
+        "q": "Pricing",
+        "a": "Every family's needs differ, so we tailor a transparent, itemised quote with no hidden costs — usually the same day.",
+        "link": "/pricing",
+        "linkLabel": "Pricing & packages"
+      },
+      {
+        "q": "Location & visiting",
+        "a": "We are at 74 Lorong 6 Geylang, Singapore. Visiting is by appointment for niche owners — message us and we will arrange a time.",
+        "link": "/contact",
+        "linkLabel": "Contact & visit"
+      }
+    ],
+    "humanLabel": "Chat on WhatsApp",
+    "closeLabel": "Close",
+    "backLabel": "More questions"
   }
 }

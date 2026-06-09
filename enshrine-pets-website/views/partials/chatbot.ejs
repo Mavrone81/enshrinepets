@@ -1,0 +1,60 @@
+<!-- Simple scripted FAQ chat widget (front-end only). Locals: c -->
+<% if (c.chatbot) { var cb = c.chatbot; %>
+<div class="chatbot" id="chatbot">
+  <button class="chatbot-launch" id="chatbot-launch" aria-expanded="false" aria-controls="chatbot-panel" aria-label="<%= cb.launchLabel %>">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 9H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+    <span class="chatbot-launch-label"><%= cb.launchLabel %></span>
+  </button>
+
+  <div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-label="<%= cb.title %>" hidden>
+    <div class="chatbot-head">
+      <div class="chatbot-head-txt"><strong><%= cb.title %></strong><span><%= cb.subtitle %></span></div>
+      <button class="chatbot-close" id="chatbot-close" aria-label="<%= cb.closeLabel %>">&times;</button>
+    </div>
+
+    <div class="chatbot-body" id="chatbot-body">
+      <div class="chatbot-msg bot"><%= cb.greeting %></div>
+
+      <div class="chatbot-menu" id="chatbot-menu">
+        <% cb.items.forEach(function(it, i){ %>
+          <button class="chatbot-q" data-i="<%= i %>"><%= it.q %></button>
+        <% }); %>
+      </div>
+
+      <% cb.items.forEach(function(it, i){ %>
+        <div class="chatbot-answer" data-i="<%= i %>" hidden>
+          <div class="chatbot-msg bot"><%= it.a %><% if (it.link) { %><br><a href="<%= it.link %>"><%= it.linkLabel %> &rarr;</a><% } %></div>
+          <button class="chatbot-back" type="button">&larr; <%= cb.backLabel %></button>
+        </div>
+      <% }); %>
+    </div>
+
+    <a class="chatbot-wa" href="<%= c.contact.btnLink %>" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.52 13.99c-.21.58-1.2 1.11-1.68 1.18-.43.06-.97.09-1.56-.1-.36-.11-.82-.26-1.41-.52-2.48-1.07-4.11-3.57-4.23-3.74-.12-.16-1.01-1.34-1.01-2.56s.63-1.82.86-2.07c.23-.25.49-.31.66-.31h.48c.16.01.36-.05.56.43.2.5.7 1.72.76 1.84.06.12.1.26.02.43-.08.16-.12.27-.25.41-.12.14-.26.32-.37.43-.12.12-.25.25-.11.5.15.25.64 1.06 1.38 1.72.94.84 1.74 1.11 1.99 1.23.25.13.4.11.54-.06.15-.16.63-.72.79-.97.17-.24.33-.2.56-.12.22.09 1.44.69 1.69.81.25.12.41.18.47.29.07.11.07.6-.14 1.18z"/></svg>
+    <%= cb.humanLabel %>
+  </a>
+  </div>
+</div>
+<script>
+(function(){
+  var root = document.getElementById('chatbot'); if(!root) return;
+  var launch = document.getElementById('chatbot-launch'),
+      panel = document.getElementById('chatbot-panel'),
+      menu = document.getElementById('chatbot-menu'),
+      answers = root.querySelectorAll('.chatbot-answer'),
+      greeting = root.querySelector('.chatbot-body > .chatbot-msg.bot');
+  function open(o){ panel.hidden = !o; root.classList.toggle('open', o); launch.setAttribute('aria-expanded', o?'true':'false'); }
+  function showMenu(){ answers.forEach(function(a){ a.hidden = true; }); menu.hidden = false; if(greeting) greeting.hidden = false; }
+  launch.addEventListener('click', function(){ open(panel.hidden); });
+  document.getElementById('chatbot-close').addEventListener('click', function(){ open(false); });
+  root.querySelectorAll('.chatbot-q').forEach(function(b){
+    b.addEventListener('click', function(){
+      var i = b.getAttribute('data-i');
+      menu.hidden = true; if(greeting) greeting.hidden = true;
+      answers.forEach(function(a){ a.hidden = a.getAttribute('data-i') !== i; });
+    });
+  });
+  root.querySelectorAll('.chatbot-back').forEach(function(b){ b.addEventListener('click', showMenu); });
+})();
+</script>
+<% } %>

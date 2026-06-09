@@ -630,5 +630,52 @@
       "ctaTitle": "咨询顾问",
       "ctaText": "欢迎致电或透过 WhatsApp 联系我们，获取即时而贴心的协助。"
     }
+  },
+  "chatbot": {
+    "launchLabel": "在线咨询",
+    "title": "欣奉小助手",
+    "subtitle": "我们随时为您服务",
+    "greeting": "您好 🐾 今天有什么可以帮您？请点选下方主题，或透过 WhatsApp 与我们联系。",
+    "items": [
+      {
+        "q": "宠物私人火化",
+        "a": "我们提供单只私人火化——您的爱宠单独火化，含恭敬接送、鲜花告别，以及免费骨灰盒与证书。您可全程见证。",
+        "link": "/pet-cremation-singapore?lang=zh",
+        "linkLabel": "了解火化"
+      },
+      {
+        "q": "骨灰安置所与格位",
+        "a": "我们位于芽笼6巷74号的永久地契宠物骨灰安置所设有逾10,000个空调格位——包括单只格位，以及可容纳多达32只宠物的家庭格位。",
+        "link": "/pet-columbarium-singapore?lang=zh",
+        "linkLabel": "了解安置所"
+      },
+      {
+        "q": "海葬",
+        "a": "我们为您的家庭单独包租船只进行私人海葬，并可选择佛教、道教、基督教或天主教仪式。",
+        "link": "/pet-sea-scattering-singapore?lang=zh",
+        "linkLabel": "了解海葬"
+      },
+      {
+        "q": "仪式与宗教礼仪",
+        "a": "我们提供四大信仰的主礼与宗教告别——佛教、道教、基督教与天主教——并可制作视频追思短片。",
+        "link": "/pet-celebrant-religious-services?lang=zh",
+        "linkLabel": "了解仪式"
+      },
+      {
+        "q": "价格",
+        "a": "每个家庭的需求各异，我们提供透明、逐项列明且无隐藏费用的报价——通常当天即可。",
+        "link": "/pricing?lang=zh",
+        "linkLabel": "价格与配套"
+      },
+      {
+        "q": "地点与参观",
+        "a": "我们位于新加坡芽笼6巷74号。参观采预约制（限格位持有者）——请联系我们安排时间。",
+        "link": "/contact?lang=zh",
+        "linkLabel": "联系与参观"
+      }
+    ],
+    "humanLabel": "透过 WhatsApp 咨询",
+    "closeLabel": "关闭",
+    "backLabel": "更多问题"
   }
 }
