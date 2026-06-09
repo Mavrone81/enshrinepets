@@ -163,6 +163,23 @@ function setPath(obj, dotted, value) {
 // ---------------------------------------------------------------------------
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+// Serve a .webp twin when the browser accepts WebP and one exists next to the
+// requested .jpg/.png. Fully non-breaking: if there is no twin or the client
+// doesn't accept WebP, it falls through to the original via express.static.
+const PUBLIC_DIR = path.join(__dirname, 'public');
+app.use((req, res, next) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') return next();
+  if (!/\.(jpe?g|png)$/i.test(req.path)) return next();
+  if (!String(req.headers.accept || '').includes('image/webp')) return next();
+  const webp = path.join(PUBLIC_DIR, req.path.replace(/\.(jpe?g|png)$/i, '.webp'));
+  if (!webp.startsWith(PUBLIC_DIR + path.sep)) return next();
+  fs.access(webp, fs.constants.R_OK, (err) => {
+    if (err) return next();
+    res.type('webp');
+    res.setHeader('Vary', 'Accept');
+    res.sendFile(webp);
+  });
+});
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
