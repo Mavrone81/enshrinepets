@@ -50,7 +50,7 @@
     <div class="svc-grid">
       <% c.services.cards.forEach(function(card){ %>
       <div class="svc-card">
-        <img src="<%= card.image %>" alt="<%= card.imageAlt %>">
+        <img src="<%= card.image %>" alt="<%= card.imageAlt %>" loading="lazy" decoding="async">
         <div class="svc-body">
           <h3><%= card.title %></h3>
           <p><%= card.desc %></p>
@@ -73,7 +73,7 @@
     <p class="lead"><%= c.religious.lead %></p>
     <div class="faith-grid">
       <% c.religious.faiths.forEach(function(f){ %>
-        <div class="faith-card"><img src="<%= f.image %>" alt="<%= f.imageAlt %>"><span><%= f.label %></span></div>
+        <div class="faith-card"><img src="<%= f.image %>" alt="<%= f.imageAlt %>" loading="lazy" decoding="async"><span><%= f.label %></span></div>
       <% }); %>
     </div>
   </div>
@@ -82,7 +82,7 @@
 <section class="colum" id="columbarium">
   <div class="container">
     <div class="colum-grid">
-      <img class="building" src="<%= c.columbarium.buildingImage %>" alt="<%= c.columbarium.buildingImageAlt %>">
+      <img class="building" src="<%= c.columbarium.buildingImage %>" alt="<%= c.columbarium.buildingImageAlt %>" loading="lazy" decoding="async">
       <div>
         <span class="badge"><%= c.columbarium.badge %></span>
         <h2 class="section-title"><%= c.columbarium.titleLead %> <em><%= c.columbarium.titleEm %></em></h2>
@@ -97,7 +97,7 @@
     </div>
     <div class="gallery">
       <% c.columbarium.gallery.forEach(function(g){ %>
-        <img src="<%= g.image %>" alt="<%= g.imageAlt %>">
+        <img src="<%= g.image %>" alt="<%= g.imageAlt %>" loading="lazy" decoding="async">
       <% }); %>
     </div>
   </div>
@@ -111,7 +111,7 @@
     <% c.niches.rows.forEach(function(row){ %>
     <div class="niche-row<%= row.flip ? ' flip' : '' %>">
       <% if (!row.flip) { %>
-        <img src="<%= row.image %>" alt="<%= row.imageAlt %>">
+        <img src="<%= row.image %>" alt="<%= row.imageAlt %>" loading="lazy" decoding="async">
         <div class="txt">
           <h3><%= row.titleLead %> <span><%= row.titleEm %></span></h3>
           <p><%= row.desc %></p>
@@ -121,7 +121,7 @@
           <h3><%= row.titleLead %> <span><%= row.titleEm %></span></h3>
           <p><%= row.desc %></p>
         </div>
-        <img src="<%= row.image %>" alt="<%= row.imageAlt %>">
+        <img src="<%= row.image %>" alt="<%= row.imageAlt %>" loading="lazy" decoding="async">
       <% } %>
     </div>
     <% }); %>
