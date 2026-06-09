@@ -1,0 +1,41 @@
+<!-- Shared top navigation. Locals: c, lang, languages, canonicalPath -->
+<%
+var navPath = (typeof canonicalPath !== 'undefined' && canonicalPath) ? canonicalPath : '/';
+var langHref = function(code){ return navPath + (code === 'en' ? '' : (navPath.indexOf('?') === -1 ? '?lang=' : '&lang=') + code); };
+%>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="<%= c.meta.logo %>" alt="Enshrine 欣奉"></a>
+    <ul class="nav-links" id="nav-menu">
+      <% c.nav.links.forEach(function(l){ %>
+        <li><a href="<%= l.href %>"><%= l.label %></a></li>
+      <% }); %>
+      <li class="nav-links-cta"><a class="btn btn-gold" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <% languages.forEach(function(L){ %>
+          <a href="<%= langHref(L.code) %>" class="lang-opt<%= L.code === lang ? ' active' : '' %>" hreflang="<%= L.code === 'zh' ? 'zh-SG' : L.code %>" lang="<%= L.code %>"><%= L.short %></a>
+        <% }); %>
+      </div>
+      <a class="btn btn-gold nav-cta" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<script>
+(function(){
+  var nav = document.querySelector('nav'),
+      btn = document.querySelector('.nav-toggle'),
+      menu = document.getElementById('nav-menu');
+  if(!btn) return;
+  function setOpen(open){
+    nav.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function(){ setOpen(!nav.classList.contains('open')); });
+  menu.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false); });
+})();
+</script>

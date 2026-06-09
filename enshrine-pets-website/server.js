@@ -208,15 +208,144 @@ function requireAuth(req, res, next) {
 }
 
 // ---------------------------------------------------------------------------
+// SEO: page registry + JSON-LD structured data
+// ---------------------------------------------------------------------------
+// Ordered list of standalone pages (home is '/'). Each has its SEO copy in
+// content.pages[slug]; the first group are "service" pages that also emit
+// Service schema.
+const PAGE_ORDER = [
+  'pet-cremation-singapore',
+  'pet-columbarium-singapore',
+  'pet-sea-scattering-singapore',
+  'pet-celebrant-religious-services',
+  'pricing',
+  'about',
+  'contact'
+];
+const SERVICE_SLUGS = new Set(PAGE_ORDER.slice(0, 4));
+const LANG_HREF = (code) => (code === 'zh' ? 'zh-SG' : code);
+
+const siteUrlOf = (c) => ((c.meta && c.meta.siteUrl) || 'https://enshrinepet.com.sg').replace(/\/$/, '');
+const cleanTel = (s) => String(s || '').replace(/[^0-9+]/g, '');
+const langSuffix = (path, code) => (code === 'en' ? '' : (path.indexOf('?') === -1 ? '?lang=' : '&lang=') + code);
+
+function localBusinessSchema(c) {
+  const site = siteUrlOf(c);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FuneralHome',
+    '@id': site + '/#business',
+    name: 'Enshrine Pets Afterlife Services 欣奉',
+    url: site + '/',
+    image: site + ((c.columbarium && c.columbarium.buildingImage) || '/images/building.jpg'),
+    logo: site + ((c.meta && c.meta.logo) || '/images/logo.png'),
+    telephone: cleanTel(c.contact && c.contact.phone),
+    email: String((c.contact && c.contact.email) || '').trim().split(/\s+/)[0],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '74 Lorong 6 Geylang',
+      addressLocality: 'Singapore',
+      addressCountry: 'SG'
+    },
+    areaServed: { '@type': 'Country', name: 'Singapore' }
+  };
+}
+
+function pageSchema(c, slug, page) {
+  const site = siteUrlOf(c);
+  const blocks = [
+    localBusinessSchema(c),
+    {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: site + '/' },
+        { '@type': 'ListItem', position: 2, name: page.crumb || page.h1, item: site + '/' + slug }
+      ]
+    }
+  ];
+  if (SERVICE_SLUGS.has(slug)) {
+    blocks.push({
+      '@context': 'https://schema.org', '@type': 'Service',
+      name: page.h1, description: page.description, serviceType: page.h1,
+      provider: { '@type': 'FuneralHome', name: 'Enshrine Pets Afterlife Services 欣奉', '@id': site + '/#business' },
+      areaServed: { '@type': 'Country', name: 'Singapore' },
+      url: site + '/' + slug
+    });
+  }
+  if (page.faqs && page.faqs.length) {
+    blocks.push({
+      '@context': 'https://schema.org', '@type': 'FAQPage',
+      mainEntity: page.faqs.map(f => ({
+        '@type': 'Question', name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: String(f.a || '').replace(/<[^>]+>/g, '').trim() }
+      }))
+    });
+  }
+  return blocks;
+}
+
+// ---------------------------------------------------------------------------
 // Public site
 // ---------------------------------------------------------------------------
-app.get('/', (req, res) => {
-  const lang = resolveLang(req);
-  // Persist an explicit ?lang= choice for a year.
+const setLangCookie = (req, res, lang) => {
   if (isLang((req.query.lang || '').toLowerCase())) {
     res.setHeader('Set-Cookie', `lang=${lang}; Path=/; Max-Age=${60 * 60 * 24 * 365}; SameSite=Lax`);
   }
-  res.render('index', { c: localizedContent(lang), lang, languages: LANGUAGES });
+};
+
+app.get('/', (req, res) => {
+  const lang = resolveLang(req);
+  setLangCookie(req, res, lang);
+  const c = localizedContent(lang);
+  res.render('index', {
+    c, lang, languages: LANGUAGES,
+    canonicalPath: '/', pageTitle: c.meta.title, pageDesc: c.meta.description,
+    schema: [localBusinessSchema(c)]
+  });
+});
+
+// robots.txt + XML sitemap (all pages × languages, with hreflang alternates)
+app.get('/robots.txt', (req, res) => {
+  const site = siteUrlOf(loadContent());
+  res.type('text/plain').send(
+    `User-agent: *\nAllow: /\nDisallow: /admin\n\nSitemap: ${site}/sitemap.xml\n`
+  );
+});
+
+app.get('/sitemap.xml', (req, res) => {
+  const c = loadContent();
+  const site = siteUrlOf(c);
+  const paths = ['', ...PAGE_ORDER.filter(s => (c.pages || {})[s])];
+  const url = (p, code) => site + '/' + p + langSuffix('/' + p, code);
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n';
+  for (const p of paths) {
+    for (const code of LANG_CODES) {
+      xml += '  <url>\n    <loc>' + url(p, code) + '</loc>\n';
+      for (const alt of LANG_CODES) {
+        xml += '    <xhtml:link rel="alternate" hreflang="' + LANG_HREF(alt) + '" href="' + url(p, alt) + '"/>\n';
+      }
+      xml += '    <xhtml:link rel="alternate" hreflang="x-default" href="' + url(p, 'en') + '"/>\n  </url>\n';
+    }
+  }
+  xml += '</urlset>\n';
+  res.type('application/xml').send(xml);
+});
+
+// Standalone SEO pages — one focused keyword each. Unknown slugs fall through
+// to the admin routes / 404 via next().
+app.get('/:slug', (req, res, next) => {
+  const slug = req.params.slug;
+  const lang = resolveLang(req);
+  const c = localizedContent(lang);
+  const page = (c.pages || {})[slug];
+  if (!page) return next();
+  setLangCookie(req, res, lang);
+  res.render('page', {
+    c, lang, languages: LANGUAGES, slug, page,
+    canonicalPath: '/' + slug, pageTitle: page.title, pageDesc: page.description,
+    schema: pageSchema(c, slug, page)
+  });
 });
 
 // ---------------------------------------------------------------------------

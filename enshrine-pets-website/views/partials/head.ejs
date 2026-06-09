@@ -1,0 +1,32 @@
+<!--
+  Shared <head>. Locals:
+    c            – localized content tree
+    lang         – current language code
+    languages    – [{code, short, label}]
+    pageTitle    – <title> text
+    pageDesc     – meta description
+    canonicalPath– path for this page, e.g. '/' or '/pet-cremation-singapore'
+    schema       – array of JSON-LD objects (optional)
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><%= pageTitle %></title>
+<meta name="description" content="<%= pageDesc %>">
+<%
+var siteUrl = (c.meta.siteUrl || 'https://enshrinepet.com.sg').replace(/\/$/, '');
+var cpath = (typeof canonicalPath !== 'undefined' && canonicalPath) ? canonicalPath : '/';
+var urlFor = function(code){ return siteUrl + cpath + (code === 'en' ? '' : (cpath.indexOf('?') === -1 ? '?lang=' : '&lang=') + code); };
+%>
+<link rel="canonical" href="<%= urlFor(lang) %>">
+<% languages.forEach(function(L){ %><link rel="alternate" hreflang="<%= L.code === 'zh' ? 'zh-SG' : L.code %>" href="<%= urlFor(L.code) %>">
+<% }); %><link rel="alternate" hreflang="x-default" href="<%= urlFor('en') %>">
+<% if (c.meta.favicon) { %><link rel="icon" href="<%= c.meta.favicon %>"<%- /\.svg(\?|$)/i.test(c.meta.favicon) ? ' type="image/svg+xml"' : '' %>>
+<link rel="apple-touch-icon" href="<%= c.meta.favicon %>"><% } %>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,500&family=Noto+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400&family=Noto+Sans+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<% (typeof schema !== 'undefined' && schema ? schema : []).forEach(function(block){ %>
+<script type="application/ld+json"><%- JSON.stringify(block) %></script>
+<% }); %>

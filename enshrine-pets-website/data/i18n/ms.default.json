@@ -7,19 +7,25 @@
     "ctaLabel": "WhatsApp Kami",
     "links": [
       {
-        "label": "Perkhidmatan"
-      },
-      {
-        "label": "Upacara Keagamaan"
+        "label": "Pembakaran"
       },
       {
         "label": "Kolumbarium"
       },
       {
-        "label": "Nic"
+        "label": "Penaburan di Laut"
       },
       {
-        "label": "Lawati Kami"
+        "label": "Upacara Keagamaan"
+      },
+      {
+        "label": "Harga"
+      },
+      {
+        "label": "Tentang Kami"
+      },
+      {
+        "label": "Hubungi Kami"
       }
     ]
   },
@@ -76,7 +82,8 @@
           "Susunan bunga",
           "Bekas abu & sijil pembakaran percuma",
           "Pilihan kutipan tulang, jika anda ingin mengebumikan haiwan anda sendiri"
-        ]
+        ],
+        "linkLabel": "Ketahui lagi"
       },
       {
         "imageAlt": "Perkhidmatan selebran haiwan — penghormatan terakhir dengan bunga",
@@ -86,7 +93,8 @@
           "Majlis perpisahan dipimpin selebran",
           "Pilihan agama: Buddha, Tao, Kristian & Katolik",
           "Montaj video merakam saat-saat terakhir berharga haiwan anda"
-        ]
+        ],
+        "linkLabel": "Ketahui lagi"
       },
       {
         "imageAlt": "Penaburan abu haiwan di laut secara persendirian",
@@ -96,7 +104,8 @@
           "Bot disewa khas untuk keluarga anda",
           "Pengaturan dengan pemimpin agama berkaitan",
           "Penasihat kami menemani dan membimbing anda sepanjang masa"
-        ]
+        ],
+        "linkLabel": "Ketahui lagi"
       },
       {
         "imageAlt": "Nic kolumbarium dengan bekas abu buluh tersuai",
@@ -106,7 +115,8 @@
           "Nic haiwan tunggal & keluarga",
           "Bekas abu buluh tersuai dengan foto, nama & tarikh",
           "Cenderamata kenangan"
-        ]
+        ],
+        "linkLabel": "Ketahui lagi"
       }
     ]
   },

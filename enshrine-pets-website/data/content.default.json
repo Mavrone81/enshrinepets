@@ -8,27 +8,35 @@
   },
   "nav": {
     "ctaLabel": "WhatsApp Us",
-    "ctaLink": "https://wa.me/6500000000",
+    "ctaLink": "https://wa.me/6590099234",
     "links": [
       {
-        "label": "Services",
-        "href": "#services"
-      },
-      {
-        "label": "Religious Rites",
-        "href": "#religious"
+        "label": "Cremation",
+        "href": "/pet-cremation-singapore"
       },
       {
         "label": "Columbarium",
-        "href": "#columbarium"
+        "href": "/pet-columbarium-singapore"
       },
       {
-        "label": "Niches",
-        "href": "#niches"
+        "label": "Sea Scattering",
+        "href": "/pet-sea-scattering-singapore"
       },
       {
-        "label": "Visit Us",
-        "href": "#contact"
+        "label": "Religious Rites",
+        "href": "/pet-celebrant-religious-services"
+      },
+      {
+        "label": "Pricing",
+        "href": "/pricing"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
       }
     ]
   },
@@ -90,7 +98,9 @@
           "Floral arrangements",
           "Complimentary urn & cremation certificate",
           "Optional bone picking, should you wish to personally inter your pet"
-        ]
+        ],
+        "link": "/pet-cremation-singapore",
+        "linkLabel": "Learn more"
       },
       {
         "image": "/images/celebrant.jpg",
@@ -101,7 +111,9 @@
           "Celebrant-led farewell ceremony",
           "Religious options: Buddhist, Taoist, Christian & Catholic",
           "Video montage capturing your pet's precious last moments"
-        ]
+        ],
+        "link": "/pet-celebrant-religious-services",
+        "linkLabel": "Learn more"
       },
       {
         "image": "/images/sea-scattering.jpg",
@@ -112,7 +124,9 @@
           "Boat chartered solely for your family",
           "Arrangements with the respective religious leader",
           "Our advisors accompany and guide you throughout"
-        ]
+        ],
+        "link": "/pet-sea-scattering-singapore",
+        "linkLabel": "Learn more"
       },
       {
         "image": "/images/single-niche.jpg",
@@ -123,7 +137,9 @@
           "Single & family pet niches",
           "Customised bamboo urns with photo, name & dates",
           "Memorial keepsakes"
-        ]
+        ],
+        "link": "/pet-columbarium-singapore",
+        "linkLabel": "Learn more"
       }
     ]
   },
@@ -226,15 +242,424 @@
     },
     "address": "74 Lorong 6 Geylang, Singapore",
     "visiting": "By appointment for niche owners",
-    "phone": "+65 0000 0000 (placeholder)",
-    "whatsapp": "+65 0000 0000 (placeholder)",
-    "email": "hello@enshrine.sg (placeholder)",
+    "phone": "+65 9009 9234",
+    "whatsapp": "+65 9009 9234",
+    "email": "enquiries@enshrinepet.com.sg",
     "btnLabel": "Speak With An Advisor",
-    "btnLink": "https://wa.me/6500000000",
+    "btnLink": "https://wa.me/6590099234",
     "mapQuery": "74 Lorong 6 Geylang, Singapore"
   },
   "footer": {
     "logo": "/images/logo.png",
     "text": "© 2026 Enshrine Pets Afterlife Services · 74 Lorong 6 Geylang, Singapore · Trust · Respect · Care · Commitment"
+  },
+  "pages": {
+    "pet-cremation-singapore": {
+      "title": "Private Pet Cremation Singapore | Enshrine Pet Afterlife",
+      "description": "Single private pet cremation in Singapore. Includes pick-up, floral arrangement, complimentary urn & certificate. Witness the process and bid farewell with dignity.",
+      "crumb": "Pet Cremation",
+      "eyebrow": "Private Pet Cremation",
+      "h1": "Private Pet Cremation in Singapore",
+      "heroImage": "/images/cremation-hall.jpg",
+      "heroImageAlt": "Private cremation farewell hall at Enshrine",
+      "intro": "Saying goodbye to a beloved companion is never easy. Enshrine provides <strong>single, private pet cremation in Singapore</strong> — your pet is cremated alone, never alongside others, so the ashes you receive are truly and only theirs. From gentle pick-up to a dignified farewell, we hold the space for your family to grieve and remember.",
+      "blocks": [
+        {
+          "heading": "What is single (private) pet cremation?",
+          "body": "<p>In a single private cremation, your pet is the only one in the chamber. This is different from communal or partitioned cremation, where several pets are cremated together and individual ashes cannot be guaranteed. Choosing a private cremation means the cremated remains returned to you belong to your pet alone — an assurance that matters deeply to most families.</p><p>You are welcome to be present throughout. Many families find that witnessing the process, and having the chance to say a final goodbye in person, brings a real sense of closure.</p>"
+        },
+        {
+          "heading": "What's included",
+          "list": [
+            "Respectful <strong>pick-up</strong> of your pet from your home or the vet",
+            "A <strong>floral arrangement</strong> and a quiet farewell space",
+            "The private cremation itself, witnessed if you wish",
+            "<strong>Complimentary urn</strong> and an official <strong>cremation certificate</strong>",
+            "Optional <strong>bone picking</strong>, should you wish to personally inter your pet"
+          ]
+        },
+        {
+          "heading": "How the farewell unfolds",
+          "body": "<p>Once your pet is in our care, we arrange a time that suits your family. On the day, you are received in a calm, private farewell hall where you can spend unhurried final moments together. After the ceremony, the cremation is carried out and the ashes are carefully collected, placed in your complimentary urn, and returned to you with the certificate.</p><p>Our advisors guide you at every step and explain your options clearly — there is no pressure, only support.</p>"
+        },
+        {
+          "heading": "After the cremation",
+          "body": "<p>Many families choose to keep their pet close in a personalised keepsake, give them a permanent resting place at our <a href=\"/pet-columbarium-singapore\">freehold pet columbarium</a>, or return their ashes to nature through a <a href=\"/pet-sea-scattering-singapore\">private sea scattering</a>. A celebrant-led or <a href=\"/pet-celebrant-religious-services\">religious farewell</a> can also be arranged. Whatever feels right for your family, we will help you plan it.</p>"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Will I receive only my pet’s ashes?",
+          "a": "Yes. Because the cremation is single and private, your pet is the only one in the chamber, so the ashes returned to you are theirs alone."
+        },
+        {
+          "q": "Can I be present during the cremation?",
+          "a": "Yes. You are welcome to witness the process and bid farewell in person. Many families find this brings comfort and closure."
+        },
+        {
+          "q": "Do you collect my pet from my home or the vet?",
+          "a": "Yes, we arrange respectful pick-up from your home or your veterinary clinic at a time that suits you."
+        },
+        {
+          "q": "What do I receive afterwards?",
+          "a": "A complimentary urn containing your pet’s ashes and an official cremation certificate. Optional bone picking is available if you wish to inter your pet personally."
+        },
+        {
+          "q": "What can I do with the ashes?",
+          "a": "You may keep them in a keepsake, place them in our freehold columbarium, or scatter them at sea. Our advisors will talk you through every option."
+        }
+      ],
+      "related": [
+        {
+          "label": "Pet Columbarium",
+          "href": "/pet-columbarium-singapore"
+        },
+        {
+          "label": "Pet Sea Scattering",
+          "href": "/pet-sea-scattering-singapore"
+        },
+        {
+          "label": "Celebrant & Religious Rites",
+          "href": "/pet-celebrant-religious-services"
+        }
+      ],
+      "ctaTitle": "Speak with a pet farewell advisor",
+      "ctaText": "We are here whenever you are ready. Reach us for private pet cremation enquiries in Singapore."
+    },
+    "pet-columbarium-singapore": {
+      "title": "Pet Columbarium Singapore – First Freehold Niches | Enshrine",
+      "description": "Singapore's first & only freehold pet columbarium at 74 Lorong 6 Geylang — 10,000+ air-conditioned niches with CCTV. Single & family pet niches, visiting by appointment.",
+      "crumb": "Pet Columbarium",
+      "eyebrow": "The First Freehold Pet Columbarium",
+      "h1": "Pet Columbarium in Singapore",
+      "heroImage": "/images/building.jpg",
+      "heroImageAlt": "Enshrine pet columbarium building at 74 Lorong 6 Geylang",
+      "intro": "Enshrine is home to Singapore's first and only <strong>freehold pet columbarium</strong>, at 74 Lorong 6 Geylang — a quiet, dignified place to remember the pets who have crossed the rainbow bridge.",
+      "blocks": [
+        {
+          "heading": "A permanent resting place",
+          "body": "<p>Enshrine’s newly built pet columbarium is a freehold, four-storey building at 74 Lorong 6 Geylang, with more than 10,000 pet niches. The interiors are fully air-conditioned for a quiet, comfortable and elegant atmosphere, and the entire building is monitored by CCTV. Every level has a pets’ play area, so you are welcome to bring your living companions when you come to remember the one who has crossed the rainbow bridge.</p>"
+        },
+        {
+          "heading": "Why freehold matters",
+          "body": "<p>Most columbaria in Singapore are leasehold, which means the resting place is secured only for a fixed term. Enshrine is the <strong>first and only freehold pet columbarium in Singapore</strong>: your pet’s niche is theirs for the long term, with no lease to renew and no relocation to worry about later. For many families, that permanence is exactly the peace of mind they are looking for.</p>"
+        },
+        {
+          "heading": "Single and family pet niches",
+          "list": [
+            "<strong>Single niches</strong> hold one pet, with a transparent cover so you can see the urn directly during visits",
+            "<strong>Family niches</strong> accommodate up to 32 pets together with no divider, so companions stay side by side",
+            "Every bamboo urn is customised with your pet’s photo, name and dates; family niches carry a personalised plaque"
+          ]
+        },
+        {
+          "heading": "A calm, unhurried visit",
+          "body": "<p>Visiting is by appointment for niche owners, which keeps the space peaceful for everyone. Come spend a quiet moment, tend to your pet’s niche, and let your living pets stretch their legs in the play area. Our advisors are on hand to help you choose the right niche and arrange a viewing.</p>"
+        }
+      ],
+      "related": [
+        {
+          "label": "Private Pet Cremation",
+          "href": "/pet-cremation-singapore"
+        },
+        {
+          "label": "Pricing & Packages",
+          "href": "/pricing"
+        },
+        {
+          "label": "Visit or Contact Us",
+          "href": "/contact"
+        }
+      ],
+      "ctaTitle": "Arrange a visit to the columbarium",
+      "ctaText": "Visiting is by appointment. Speak with an advisor to view our single and family pet niches.",
+      "faqs": [
+        {
+          "q": "Where is the columbarium?",
+          "a": "At 74 Lorong 6 Geylang, Singapore — a freehold, four-storey, fully air-conditioned building."
+        },
+        {
+          "q": "What does “freehold” mean for me?",
+          "a": "Your pet’s niche is secured for the long term, with no fixed lease to renew and no future relocation — unlike most leasehold columbaria."
+        },
+        {
+          "q": "What is the difference between a single and family niche?",
+          "a": "A single niche holds one pet behind a transparent cover; a family niche holds up to 32 pets together with no divider, with a personalised plaque."
+        },
+        {
+          "q": "Can I visit, and can I bring my other pets?",
+          "a": "Yes. Visiting is by appointment, and every level has a pets’ play area, so your living companions are welcome."
+        }
+      ]
+    },
+    "pet-sea-scattering-singapore": {
+      "title": "Pet Sea Scattering Singapore | Enshrine Pet Afterlife",
+      "description": "Private pet sea scattering in Singapore with an optional Buddhist, Taoist, Christian or Catholic ritual. A chartered boat and advisors to guide you through.",
+      "crumb": "Pet Sea Scattering",
+      "eyebrow": "Private Sea Scattering",
+      "h1": "Pet Sea Scattering in Singapore",
+      "heroImage": "/images/sea-scattering.jpg",
+      "heroImageAlt": "Private sea scattering of pet cremains",
+      "intro": "Return your beloved pet’s ashes to nature with a <strong>private sea scattering</strong> — a serene, personal farewell on the open water, with an optional religious ritual.",
+      "blocks": [
+        {
+          "heading": "A private farewell at sea",
+          "body": "<p>A sea scattering returns your beloved pet’s ashes to nature in a serene, personal way. We charter a boat <strong>solely for your family</strong>, so the occasion is unhurried and entirely yours — no sharing the moment with strangers. Our advisors accompany you throughout, handling the arrangements so you can simply be present and say goodbye.</p>"
+        },
+        {
+          "heading": "An optional religious ritual",
+          "body": "<p>If you wish, we arrange for the appropriate religious leader to conduct a <strong>Buddhist, Taoist, Christian or Catholic</strong> ritual on board during the scattering. The rite is carried out with care and reverence, in keeping with your family’s faith.</p>"
+        },
+        {
+          "heading": "What to expect on the day",
+          "body": "<p>We meet you at the jetty and sail out to the designated waters. When you are ready, the ashes are scattered together with flowers, and you are given the time and space for a few words or a quiet moment. The boat then returns gently to shore. The whole experience is calm, dignified and led at your pace.</p>"
+        },
+        {
+          "heading": "Bringing the farewell together",
+          "body": "<p>A sea scattering can follow a <a href=\"/pet-cremation-singapore\">private cremation</a> and be paired with a <a href=\"/pet-celebrant-religious-services\">celebrant or religious ceremony</a> for a complete farewell. Speak with our advisors and we will help you plan each part around your family.</p>"
+        }
+      ],
+      "related": [
+        {
+          "label": "Private Pet Cremation",
+          "href": "/pet-cremation-singapore"
+        },
+        {
+          "label": "Celebrant & Religious Rites",
+          "href": "/pet-celebrant-religious-services"
+        },
+        {
+          "label": "Visit or Contact Us",
+          "href": "/contact"
+        }
+      ],
+      "ctaTitle": "Plan a private sea scattering",
+      "ctaText": "Talk to an advisor about chartering a boat and arranging an optional religious ritual.",
+      "faqs": [
+        {
+          "q": "Is the boat shared with other families?",
+          "a": "No. We charter the boat solely for your family, so the farewell is private and unhurried."
+        },
+        {
+          "q": "Can we include a religious ritual?",
+          "a": "Yes — we can arrange a Buddhist, Taoist, Christian or Catholic leader to conduct the rite on board."
+        },
+        {
+          "q": "How long does it take?",
+          "a": "It varies with the weather and waters, but the experience is led at your pace. Our advisors will share timings when you plan the date."
+        },
+        {
+          "q": "Can we combine it with cremation or a ceremony?",
+          "a": "Absolutely. A sea scattering often follows a private cremation and can be paired with a celebrant or religious farewell."
+        }
+      ]
+    },
+    "pet-celebrant-religious-services": {
+      "title": "Pet Celebrant & Religious Funeral Services | Enshrine SG",
+      "description": "Pet celebrant and religious funeral services in Singapore — Buddhist, Taoist, Christian & Catholic rites, a prayer & eulogy session, and a video tribute montage.",
+      "crumb": "Celebrant & Religious Rites",
+      "eyebrow": "Celebrant & Religious Services",
+      "h1": "Pet Celebrant & Religious Funeral Services",
+      "heroImage": "/images/celebrant.jpg",
+      "heroImageAlt": "Pet celebrant service with floral tribute",
+      "intro": "Honour the bond you shared with a <strong>celebrant-led or religious farewell</strong>, conducted with the rites and reverence of your faith.",
+      "blocks": [
+        {
+          "heading": "A ceremony that honours your bond",
+          "body": "<p>Our celebrant service is a 30-minute prayer and eulogy session, built around three gentle moments — a <strong>Final Touch</strong>, a <strong>Tribute</strong>, and a <strong>Final Farewell</strong>. It is a chance to put words to the love you shared and to say goodbye in a way that feels meaningful, whether your family is religious or not.</p>"
+        },
+        {
+          "heading": "Rites across four faiths",
+          "body": "<p>We offer religious funeral services across <strong>four faiths — Buddhist, Taoist, Christian and Catholic</strong> — each conducted with the appropriate rites and reverence. We coordinate with the right religious leader so the ceremony observes the customs that matter to your family.</p>"
+        },
+        {
+          "heading": "A video tribute montage",
+          "body": "<p>To remember the day, we can prepare a video montage capturing your pet’s precious moments. It plays during the ceremony and stays with you afterwards as a lasting keepsake of a life well loved.</p>"
+        },
+        {
+          "heading": "We plan it with you",
+          "body": "<p>From scheduling to the religious leader to the order of the ceremony, our advisors handle the details and guide you at every step. A celebrant or religious farewell pairs naturally with a <a href=\"/pet-cremation-singapore\">private cremation</a>, a <a href=\"/pet-columbarium-singapore\">columbarium niche</a> or a <a href=\"/pet-sea-scattering-singapore\">sea scattering</a>.</p>"
+        }
+      ],
+      "related": [
+        {
+          "label": "Private Pet Cremation",
+          "href": "/pet-cremation-singapore"
+        },
+        {
+          "label": "Pet Sea Scattering",
+          "href": "/pet-sea-scattering-singapore"
+        },
+        {
+          "label": "Pet Columbarium",
+          "href": "/pet-columbarium-singapore"
+        }
+      ],
+      "ctaTitle": "Arrange a celebrant or religious farewell",
+      "ctaText": "Speak with an advisor about a celebrant-led ceremony or a Buddhist, Taoist, Christian or Catholic rite.",
+      "faqs": [
+        {
+          "q": "Which faiths do you cater to?",
+          "a": "Buddhist, Taoist, Christian and Catholic rites, each conducted with the appropriate customs. A non-religious celebrant ceremony is also available."
+        },
+        {
+          "q": "How long is the ceremony?",
+          "a": "The celebrant session runs about 30 minutes — a Final Touch, a Tribute and a Final Farewell."
+        },
+        {
+          "q": "Can I get a video tribute?",
+          "a": "Yes. We can prepare a video montage of your pet’s moments to play at the ceremony and keep afterwards."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Pet Cremation & Columbarium Pricing | Enshrine Singapore",
+      "description": "Transparent pricing for pet cremation, columbarium niches and memorial services in Singapore. Speak with an Enshrine advisor for a tailored quote.",
+      "crumb": "Pricing & Packages",
+      "eyebrow": "Pricing & Packages",
+      "h1": "Pet Cremation & Columbarium Pricing",
+      "heroImage": "/images/interior-2.jpg",
+      "heroImageAlt": "Columbarium niche wall with feature lighting",
+      "intro": "Every family’s needs are different, so we tailor our packages to you. Speak with an advisor for a clear, itemised quote with no hidden costs.",
+      "blocks": [
+        {
+          "heading": "What shapes your package",
+          "body": "<p>Your package depends on the services you choose, so we tailor it to your family rather than forcing a one-size-fits-all bundle.</p>",
+          "list": [
+            "Private pet cremation, with pick-up, a complimentary urn and certificate",
+            "Single or family columbarium niches",
+            "Celebrant-led and religious ceremonies (Buddhist, Taoist, Christian, Catholic)",
+            "Private sea scattering",
+            "Customised urns, plaques and memorial keepsakes"
+          ]
+        },
+        {
+          "heading": "Transparent and itemised",
+          "body": "<p>We believe a farewell should never come with surprises. Every quote is itemised so you can see exactly what is included, and there are <strong>no hidden costs</strong>. If you only need certain services, you only pay for those.</p>"
+        },
+        {
+          "heading": "Tailored to your family",
+          "body": "<p>Some families want a simple private cremation; others want a full ceremony, a columbarium niche and a sea scattering. We will talk through your wishes and your budget and recommend an option that feels right, with no pressure.</p>"
+        },
+        {
+          "heading": "How to get a quote",
+          "body": "<p>The quickest way is to speak with an advisor by phone or WhatsApp. Tell us what you have in mind and we will prepare a clear, written quote — usually the same day. You can also visit our <a href=\"/pet-columbarium-singapore\">columbarium</a> by appointment to see the niches in person.</p>"
+        }
+      ],
+      "related": [
+        {
+          "label": "Private Pet Cremation",
+          "href": "/pet-cremation-singapore"
+        },
+        {
+          "label": "Pet Columbarium",
+          "href": "/pet-columbarium-singapore"
+        },
+        {
+          "label": "Visit or Contact Us",
+          "href": "/contact"
+        }
+      ],
+      "ctaTitle": "Request a tailored quote",
+      "ctaText": "Tell us what you need and we will prepare a transparent, itemised quote for your family.",
+      "faqs": [
+        {
+          "q": "Do you have fixed packages or custom quotes?",
+          "a": "Both — we can suggest a suitable package or build a custom quote around exactly the services you need."
+        },
+        {
+          "q": "Are there any hidden costs?",
+          "a": "No. Every quote is itemised and transparent, so you know what is included before you decide."
+        },
+        {
+          "q": "How do I get a quote?",
+          "a": "Call or WhatsApp our advisors at +65 9009 9234, or email enquiries@enshrinepet.com.sg, and we will prepare one — usually the same day."
+        }
+      ]
+    },
+    "about": {
+      "title": "About Enshrine 欣奉 | Pet Afterlife Services Singapore",
+      "description": "Enshrine provides one-stop pet afterlife care in Singapore with trust, respect, care and commitment. Learn about our team and our Geylang pet columbarium.",
+      "crumb": "About Enshrine",
+      "eyebrow": "About Enshrine 欣奉",
+      "h1": "About Enshrine Pets Afterlife Services",
+      "heroImage": "/images/interior-1.jpg",
+      "heroImageAlt": "Columbarium interior corridor",
+      "intro": "Enshrine offers <strong>one-stop pet afterlife care in Singapore</strong> — from cremation and sea burial to columbarium, keepsakes and religious services — guided by four values: trust, respect, care and commitment.",
+      "blocks": [
+        {
+          "heading": "Caring for every farewell",
+          "body": "<p>We understand how distressing it is to lose a beloved companion. Enshrine exists to carry that burden with you — handling every arrangement so your family can grieve, remember, and say goodbye with grace. From the first phone call to the final farewell, our advisors attend to every detail with dignity and patience.</p>"
+        },
+        {
+          "heading": "Trust, respect, care and commitment",
+          "body": "<p>Four values guide everything we do. <strong>Trust</strong>, because a single private cremation should mean exactly that. <strong>Respect</strong>, for every pet and every family, of every faith. <strong>Care</strong>, in the small details that make a hard day a little gentler. And <strong>commitment</strong>, to seeing each family through to a farewell they can find peace in.</p>"
+        },
+        {
+          "heading": "Singapore's first freehold pet columbarium",
+          "body": "<p>Our home is the first and only <a href=\"/pet-columbarium-singapore\">freehold pet columbarium in Singapore</a>, at 74 Lorong 6 Geylang — a four-storey, fully air-conditioned building with more than 10,000 niches, CCTV throughout, and a pets’ play area on every level.</p>"
+        },
+        {
+          "heading": "One-stop pet afterlife care",
+          "body": "<p>Everything can be arranged in one place: <a href=\"/pet-cremation-singapore\">private cremation</a>, <a href=\"/pet-celebrant-religious-services\">celebrant and religious ceremonies</a>, <a href=\"/pet-sea-scattering-singapore\">sea scattering</a>, columbarium niches and personalised keepsakes — so you are never left coordinating between strangers during a difficult time.</p>"
+        }
+      ],
+      "related": [
+        {
+          "label": "Pet Columbarium",
+          "href": "/pet-columbarium-singapore"
+        },
+        {
+          "label": "Private Pet Cremation",
+          "href": "/pet-cremation-singapore"
+        },
+        {
+          "label": "Visit or Contact Us",
+          "href": "/contact"
+        }
+      ],
+      "ctaTitle": "Talk to the Enshrine team",
+      "ctaText": "Have a question about our services or our Geylang columbarium? We are here to help."
+    },
+    "contact": {
+      "title": "Contact Enshrine | Pet Columbarium, 74 Lorong 6 Geylang",
+      "description": "Visit or call Enshrine Pet Columbarium at 74 Lorong 6 Geylang, Singapore. WhatsApp or phone our advisors for pet cremation and memorial enquiries.",
+      "crumb": "Visit or Contact Us",
+      "eyebrow": "We're Here For You",
+      "h1": "Contact Enshrine Pet Columbarium",
+      "heroImage": "/images/building.jpg",
+      "heroImageAlt": "Enshrine pet columbarium building at 74 Lorong 6 Geylang",
+      "intro": "Reach out any time for pet cremation, columbarium or memorial enquiries. Our advisors are ready to guide and support you.",
+      "blocks": [
+        {
+          "heading": "Visit us",
+          "body": "<p><strong>Enshrine Pet Columbarium</strong><br>74 Lorong 6 Geylang, Singapore</p><p>Visiting is by appointment for niche owners, so the space stays peaceful for every family. Please reach out to arrange a time and we will be glad to show you our single and family pet niches.</p>"
+        },
+        {
+          "heading": "Call or message us",
+          "body": "<p>Phone or WhatsApp: <strong>+65 9009 9234</strong><br>Email: <strong>enquiries@enshrinepet.com.sg</strong></p><p>Whether you need immediate help or are simply exploring your options, our advisors are ready to guide and support you with care.</p>"
+        },
+        {
+          "heading": "How we can help",
+          "body": "<p>We can talk you through <a href=\"/pet-cremation-singapore\">private cremation</a>, a <a href=\"/pet-columbarium-singapore\">columbarium niche</a>, a <a href=\"/pet-sea-scattering-singapore\">sea scattering</a> or a <a href=\"/pet-celebrant-religious-services\">celebrant or religious ceremony</a>, and prepare a <a href=\"/pricing\">tailored quote</a> for your family.</p>"
+        }
+      ],
+      "related": [
+        {
+          "label": "Pet Columbarium",
+          "href": "/pet-columbarium-singapore"
+        },
+        {
+          "label": "Private Pet Cremation",
+          "href": "/pet-cremation-singapore"
+        },
+        {
+          "label": "Pricing & Packages",
+          "href": "/pricing"
+        }
+      ],
+      "ctaTitle": "Speak with an advisor",
+      "ctaText": "Call or WhatsApp us for immediate, compassionate assistance."
+    }
   }
 }

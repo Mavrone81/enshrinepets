@@ -181,6 +181,48 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 @media(max-width:600px){.float-stack{right:16px;bottom:16px;gap:10px}.float-cta{padding:14px}.float-cta-label{display:none}.float-mini{width:48px;height:48px}}
 @media(prefers-reduced-motion:reduce){.float-cta{animation:none}}
 
+/* SERVICE-CARD "LEARN MORE" LINK (home) */
+.svc-more{display:inline-block;margin-top:16px;font-weight:600;font-size:.9rem;letter-spacing:.04em;color:var(--royal);transition:color .2s}
+.svc-more:hover{color:var(--gold-deep)}
+
+/* INNER PAGES (page.ejs) */
+.page-hero{position:relative;padding:150px 0 50px;background:radial-gradient(120% 80% at 50% 0%,#d8e9fb 0%,#aecdf3 55%,#7ab0ea 100%)}
+.breadcrumb{font-size:.82rem;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:18px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.breadcrumb a{color:var(--royal)}
+.breadcrumb a:hover{color:var(--gold-deep)}
+.breadcrumb span[aria-current]{color:var(--ink)}
+.page-hero h1{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:600}
+.page-hero .lead{margin-top:6px}
+.page-hero-img{margin-top:30px;width:100%;max-height:420px;object-fit:cover;border-radius:20px;border:1px solid rgba(216,178,90,.5);box-shadow:0 22px 60px rgba(20,80,207,.26)}
+.page-body{padding:60px 0 90px;background:transparent}
+.page-body .container{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:50px;align-items:start}
+.prose{max-width:760px}
+.prose h2{font-size:1.7rem;font-weight:600;margin:38px 0 14px}
+.prose h2:first-child{margin-top:0}
+.prose p{margin-bottom:16px;color:var(--ink-soft)}
+.prose ul{margin:0 0 18px 22px;color:var(--ink-soft)}
+.prose li{margin-bottom:7px}
+.prose strong{color:var(--ink)}
+.prose a{color:var(--royal);text-decoration:underline;text-underline-offset:3px}
+.prose a:hover{color:var(--gold-deep)}
+.faq{margin-top:8px}
+.faq-item{background:var(--white);border:1px solid rgba(20,80,207,.12);border-radius:14px;padding:4px 20px;margin-bottom:12px;box-shadow:0 6px 20px rgba(20,80,207,.07)}
+.faq-item summary{cursor:pointer;font-family:'Noto Serif','Noto Serif SC',serif;font-weight:600;color:var(--ink);padding:14px 0;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';float:right;color:var(--gold-deep);font-size:1.3rem;line-height:1}
+.faq-item[open] summary::after{content:'\2212'}
+.faq-a{padding:0 0 16px;color:var(--ink-soft)}
+.related{position:sticky;top:90px;background:rgba(255,255,255,.72);border:1px solid rgba(20,80,207,.14);border-radius:18px;padding:26px 24px;backdrop-filter:blur(4px)}
+.related h3{font-size:1.2rem;margin-bottom:14px}
+.related ul{list-style:none}
+.related li{margin-bottom:12px}
+.related a{color:var(--royal);font-weight:500;font-size:.95rem}
+.related a:hover{color:var(--gold-deep)}
+.page-cta{grid-column:1/-1;margin-top:50px;text-align:center;background:linear-gradient(135deg,var(--royal-deep),var(--royal));border-radius:22px;padding:46px 28px;color:#fff}
+.page-cta h3{color:#fff;font-size:1.7rem;margin-bottom:10px}
+.page-cta p{color:#dbe6ff;margin-bottom:22px}
+@media(max-width:860px){.page-body .container{grid-template-columns:1fr;gap:34px}.related{position:static}.page-hero{padding:120px 0 40px}}
+
 /* FOOTER */
 footer{background:linear-gradient(180deg,#0a2f8c,#071f5c);padding:36px 0;text-align:center}
 footer img{height:34px;margin:0 auto 12px;opacity:.95}

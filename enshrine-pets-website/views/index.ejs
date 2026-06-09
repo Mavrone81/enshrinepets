@@ -1,65 +1,11 @@
 <!DOCTYPE html>
 <html lang="<%= lang %>">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><%= c.meta.title %></title>
-<meta name="description" content="<%= c.meta.description %>">
-<%
-// Canonical domain (enshrinepet.com.sg). enshrinepet.sg 301-redirects here, and
-// each language self-canonicalises with hreflang alternates for the others.
-var siteUrl = (c.meta.siteUrl || 'https://enshrinepet.com.sg').replace(/\/$/, '');
-var urlFor = function(code){ return siteUrl + (code === 'en' ? '/' : '/?lang=' + code); };
-%>
-<link rel="canonical" href="<%= urlFor(lang) %>">
-<% languages.forEach(function(L){ %><link rel="alternate" hreflang="<%= L.code %>" href="<%= urlFor(L.code) %>">
-<% }); %><link rel="alternate" hreflang="x-default" href="<%= siteUrl %>/">
-<% if (c.meta.favicon) { %><link rel="icon" href="<%= c.meta.favicon %>"<%- /\.svg(\?|$)/i.test(c.meta.favicon) ? ' type="image/svg+xml"' : '' %>>
-<link rel="apple-touch-icon" href="<%= c.meta.favicon %>"><% } %>
-<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,500&family=Noto+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@400&family=Noto+Sans+Tamil:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
+<%- include('partials/head') %>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="#top" class="nav-logo"><img src="<%= c.meta.logo %>" alt="Enshrine 欣奉"></a>
-    <ul class="nav-links" id="nav-menu">
-      <% c.nav.links.forEach(function(l){ %>
-        <li><a href="<%= l.href %>"><%= l.label %></a></li>
-      <% }); %>
-      <li class="nav-links-cta"><a class="btn btn-gold" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a></li>
-    </ul>
-    <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="Language">
-        <% languages.forEach(function(L){ %>
-          <a href="/?lang=<%= L.code %>#top" class="lang-opt<%= L.code === lang ? ' active' : '' %>" hreflang="<%= L.code %>" lang="<%= L.code %>"><%= L.short %></a>
-        <% }); %>
-      </div>
-      <a class="btn btn-gold nav-cta" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</nav>
-<script>
-(function(){
-  var nav = document.querySelector('nav'),
-      btn = document.querySelector('.nav-toggle'),
-      menu = document.getElementById('nav-menu');
-  if(!btn) return;
-  function setOpen(open){
-    nav.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  }
-  btn.addEventListener('click', function(){ setOpen(!nav.classList.contains('open')); });
-  menu.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false); });
-})();
-</script>
+<%- include('partials/nav') %>
 
 <header class="hero" id="top">
   <div class="container hero-grid">
@@ -111,6 +57,7 @@ var urlFor = function(code){ return siteUrl + (code === 'en' ? '/' : '/?lang=' +
           <ul>
             <% card.items.forEach(function(it){ %><li><%= it %></li><% }); %>
           </ul>
+          <% if (card.link) { %><a class="svc-more" href="<%= card.link %>"><%= card.linkLabel || 'Learn more' %> &rarr;</a><% } %>
         </div>
       </div>
       <% }); %>
@@ -201,31 +148,8 @@ var urlFor = function(code){ return siteUrl + (code === 'en' ? '/' : '/?lang=' +
   </div>
 </section>
 
-<footer>
-  <img src="<%= c.footer.logo %>" alt="Enshrine 欣奉">
-  <p><%= c.footer.text %></p>
-</footer>
-
-<!-- Floating contact buttons: phone (tel:) and email (mailto:) use the admin's
-     Contact > Phone / Email fields; advisor reuses the Contact CTA. -->
-<%
-  var telHref  = 'tel:'   + String(c.contact.phone || '').replace(/[^0-9+]/g, '');
-  var mailAddr = String(c.contact.email || '').trim().split(/\s+/)[0];
-%>
-<div class="float-stack">
-  <a class="float-mini" href="<%= telHref %>" aria-label="Call us" title="Call us">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-  </a>
-  <a class="float-mini" href="mailto:<%= mailAddr %>" aria-label="Email us" title="Email us">
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-  </a>
-  <a class="float-cta" href="<%= c.contact.btnLink %>" aria-label="<%= c.contact.btnLabel %>">
-    <svg class="float-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.32a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/>
-    </svg>
-    <span class="float-cta-label"><%= c.contact.btnLabel %></span>
-  </a>
-</div>
+<%- include('partials/footer') %>
+<%- include('partials/floating') %>
 
 </body>
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+
+<%- include('partials/nav') %>
+
+<header class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/"><%= page.breadcrumbHome || 'Home' %></a>
+      <span aria-hidden="true">&rsaquo;</span>
+      <span aria-current="page"><%= page.crumb || page.h1 %></span>
+    </nav>
+    <% if (page.eyebrow) { %><span class="eyebrow"><%= page.eyebrow %></span><% } %>
+    <h1><%= page.h1 %></h1>
+    <div class="gold-rule"></div>
+    <% if (page.intro) { %><p class="lead"><%- page.intro %></p><% } %>
+    <% if (page.heroImage) { %><img class="page-hero-img" src="<%= page.heroImage %>" alt="<%= page.heroImageAlt || page.h1 %>"><% } %>
+  </div>
+</header>
+
+<section class="page-body">
+  <div class="container">
+    <article class="prose">
+      <% (page.blocks || []).forEach(function(b){ %>
+        <% if (b.heading) { %><h2><%= b.heading %></h2><% } %>
+        <% if (b.body) { %><%- b.body %><% } %>
+        <% if (b.list) { %><ul><% b.list.forEach(function(it){ %><li><%- it %></li><% }); %></ul><% } %>
+      <% }); %>
+
+      <% if (page.faqs && page.faqs.length) { %>
+        <h2><%= page.faqTitle || 'Frequently asked questions' %></h2>
+        <div class="faq">
+          <% page.faqs.forEach(function(f){ %>
+            <details class="faq-item">
+              <summary><%= f.q %></summary>
+              <div class="faq-a"><%- f.a %></div>
+            </details>
+          <% }); %>
+        </div>
+      <% } %>
+    </article>
+
+    <% if (page.related && page.related.length) { %>
+      <aside class="related">
+        <h3><%= page.relatedTitle || 'Related services' %></h3>
+        <ul>
+          <% page.related.forEach(function(r){ %><li><a href="<%= r.href %>"><%= r.label %> &rarr;</a></li><% }); %>
+        </ul>
+      </aside>
+    <% } %>
+
+    <div class="page-cta">
+      <h3><%= page.ctaTitle || c.contact.cardTitle %></h3>
+      <p><%= page.ctaText || (c.contact.address) %></p>
+      <a class="btn btn-gold" href="<%= page.ctaLink || c.contact.btnLink %>"><%= page.ctaLabel || c.contact.btnLabel %></a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
+<%- include('partials/floating') %>
+
+</body>
+</html>
