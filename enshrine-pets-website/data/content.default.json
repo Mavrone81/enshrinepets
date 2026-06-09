@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Farewell with Grace, Care with Devotion | Enshrine 欣奉",
-    "description": "Enshrine delivers dignified pet afterlife services in Singapore — private cremation, celebrant & religious services, sea scattering, and the first freehold pet columbarium at 47 Lorong 16 Geylang.",
+    "description": "Enshrine delivers dignified pet afterlife services in Singapore — private cremation, celebrant & religious services, sea scattering, and the first freehold pet columbarium at 74 Lorong 6 Geylang.",
     "logo": "/images/logo.png",
     "favicon": "/images/favicon.svg",
     "siteUrl": "https://enshrinepet.com.sg"
@@ -159,9 +159,9 @@
     "badge": "The First & Only Freehold Pet Columbarium in Singapore",
     "titleLead": "A place of",
     "titleEm": "remembrance",
-    "lead": "More than just a resting place. Enshrine's newly built pet columbarium at <strong>47 Lorong 16 Geylang</strong> is a freehold, four-storey building with more than 10,000 pet niches — fully air-conditioned for a quiet, comfortable and elegant ambiance.",
+    "lead": "More than just a resting place. Enshrine's newly built pet columbarium at <strong>74 Lorong 6 Geylang</strong> is a freehold, four-storey building with more than 10,000 pet niches — fully air-conditioned for a quiet, comfortable and elegant ambiance.",
     "buildingImage": "/images/building.jpg",
-    "buildingImageAlt": "Enshrine pet columbarium building at 47 Lorong 16 Geylang",
+    "buildingImageAlt": "Enshrine pet columbarium building at 74 Lorong 6 Geylang",
     "features": [
       "Freehold, four-storey building",
       "More than 10,000 pet niches",
@@ -224,17 +224,17 @@
       "whatsapp": "WhatsApp",
       "email": "Email"
     },
-    "address": "47 Lorong 16 Geylang, Singapore",
+    "address": "74 Lorong 6 Geylang, Singapore",
     "visiting": "By appointment for niche owners",
     "phone": "+65 0000 0000 (placeholder)",
     "whatsapp": "+65 0000 0000 (placeholder)",
     "email": "hello@enshrine.sg (placeholder)",
     "btnLabel": "Speak With An Advisor",
     "btnLink": "https://wa.me/6500000000",
-    "mapQuery": "47 Lorong 16 Geylang, Singapore"
+    "mapQuery": "74 Lorong 6 Geylang, Singapore"
   },
   "footer": {
     "logo": "/images/logo.png",
-    "text": "© 2026 Enshrine Pets Afterlife Services · 47 Lorong 16 Geylang, Singapore · Trust § Respect § Care § Commitment"
+    "text": "© 2026 Enshrine Pets Afterlife Services · 74 Lorong 6 Geylang, Singapore · Trust · Respect · Care · Commitment"
   }
 }

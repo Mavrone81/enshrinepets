@@ -22,7 +22,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Jost','Noto Sans SC','Noto Sans Tamil',sans-serif;color:var(--ink);line-height:1.7;font-weight:300;
-  background:linear-gradient(180deg,#e9f3ff 0%,#cbe4ff 52%,#a6d1fe 100%);background-attachment:fixed}
+  background:linear-gradient(180deg,#c8def8 0%,#9cc6f1 52%,#6fa9e6 100%);background-attachment:fixed}
 h1,h2,h3,h4{font-family:'Cormorant Garamond','Noto Sans SC','Noto Sans Tamil',serif;color:var(--ink);line-height:1.2}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
@@ -78,7 +78,7 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:150px 0 100px;
-  background:radial-gradient(120% 80% at 50% 0%,#f1f7ff 0%,#d6e9ff 45%,#aed5fe 100%)}
+  background:radial-gradient(120% 80% at 50% 0%,#d8e9fb 0%,#aecdf3 45%,#7ab0ea 100%)}
 /* soft royal-blue "blooms" echoing the flower placement in the brand image */
 .hero::before{content:'';position:absolute;right:-6%;top:-10%;width:42%;height:55%;background:radial-gradient(circle at 70% 30%,rgba(20,80,207,.34),rgba(20,80,207,0) 62%);pointer-events:none}
 .hero::after{content:'';position:absolute;left:-8%;bottom:-12%;width:38%;height:52%;background:radial-gradient(circle at 30% 70%,rgba(20,80,207,.30),rgba(20,80,207,0) 62%);pointer-events:none}
