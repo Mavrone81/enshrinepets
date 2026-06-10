@@ -10,7 +10,7 @@ var langHref = function(code){ return navPath + (code === 'en' ? '' : (navPath.i
       <% c.nav.links.forEach(function(l){ %>
         <li><a href="<%= l.href %>"><%= l.label %></a></li>
       <% }); %>
-      <li class="nav-links-cta"><a class="btn btn-gold" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a></li>
+      <li class="nav-links-cta"><a class="btn btn-gold" href="<%= waLink %>"><%= c.nav.ctaLabel %></a></li>
     </ul>
     <div class="nav-right">
       <div class="lang-switch" role="group" aria-label="Language">
@@ -18,7 +18,7 @@ var langHref = function(code){ return navPath + (code === 'en' ? '' : (navPath.i
           <a href="<%= langHref(L.code) %>" class="lang-opt<%= L.code === lang ? ' active' : '' %>" hreflang="<%= L.code === 'zh' ? 'zh-SG' : L.code %>" lang="<%= L.code %>"><%= L.short %></a>
         <% }); %>
       </div>
-      <a class="btn btn-gold nav-cta" href="<%= c.nav.ctaLink %>"><%= c.nav.ctaLabel %></a>
+      <a class="btn btn-gold nav-cta" href="<%= waLink %>"><%= c.nav.ctaLabel %></a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>

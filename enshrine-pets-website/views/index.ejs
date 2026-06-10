@@ -141,7 +141,7 @@
         <div class="contact-line"><b><%= c.contact.labels.phone %></b><span><%= c.contact.phone %></span></div>
         <div class="contact-line"><b><%= c.contact.labels.whatsapp %></b><span><%= c.contact.whatsapp %></span></div>
         <div class="contact-line"><b><%= c.contact.labels.email %></b><span><%= c.contact.email %></span></div>
-        <a class="btn btn-gold" href="<%= c.contact.btnLink %>"><%= c.contact.btnLabel %></a>
+        <a class="btn btn-gold" href="<%= waLink %>"><%= c.contact.btnLabel %></a>
       </div>
       <iframe title="Map to Enshrine Pet Columbarium" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=<%= encodeURIComponent(c.contact.mapQuery) %>&output=embed"></iframe>
     </div>

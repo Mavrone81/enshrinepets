@@ -246,6 +246,15 @@ const siteUrlOf = (c) => ((c.meta && c.meta.siteUrl) || 'https://enshrinepet.com
 const cleanTel = (s) => String(s || '').replace(/[^0-9+]/g, '');
 const langSuffix = (path, code) => (code === 'en' ? '' : (path.indexOf('?') === -1 ? '?lang=' : '&lang=') + code);
 
+// Build the WhatsApp link with a prefilled default message (?text=...), in the
+// current language. Falls back to the bare link if no message is configured.
+function waUrl(c) {
+  const base = (c.contact && c.contact.btnLink) || '';
+  const msg = c.contact && c.contact.whatsappMessage;
+  if (!base || !msg) return base;
+  return base + (base.indexOf('?') === -1 ? '?' : '&') + 'text=' + encodeURIComponent(msg);
+}
+
 function localBusinessSchema(c) {
   const site = siteUrlOf(c);
   return {
@@ -315,7 +324,7 @@ app.get('/', (req, res) => {
   setLangCookie(req, res, lang);
   const c = localizedContent(lang);
   res.render('index', {
-    c, lang, languages: LANGUAGES,
+    c, lang, languages: LANGUAGES, waLink: waUrl(c),
     canonicalPath: '/', pageTitle: c.meta.title, pageDesc: c.meta.description,
     schema: [localBusinessSchema(c)]
   });
@@ -359,7 +368,7 @@ app.get('/:slug', (req, res, next) => {
   if (!page) return next();
   setLangCookie(req, res, lang);
   res.render('page', {
-    c, lang, languages: LANGUAGES, slug, page,
+    c, lang, languages: LANGUAGES, slug, page, waLink: waUrl(c),
     canonicalPath: '/' + slug, pageTitle: page.title, pageDesc: page.description,
     schema: pageSchema(c, slug, page)
   });

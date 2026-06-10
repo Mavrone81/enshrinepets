@@ -247,7 +247,8 @@
     "email": "enquiries@enshrinepet.com.sg",
     "btnLabel": "Speak With An Advisor",
     "btnLink": "https://wa.me/6590099234",
-    "mapQuery": "74 Lorong 6 Geylang, Singapore"
+    "mapQuery": "74 Lorong 6 Geylang, Singapore",
+    "whatsappMessage": "Hi Enshrine, I'd like to know more about your pet afterlife services."
   },
   "footer": {
     "logo": "/images/logo.png",
