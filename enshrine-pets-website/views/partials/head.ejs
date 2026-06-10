@@ -20,6 +20,22 @@ var urlFor = function(code){ return siteUrl + cpath + (code === 'en' ? '' : (cpa
 <link rel="canonical" href="<%= urlFor(lang) %>">
 <% languages.forEach(function(L){ %><link rel="alternate" hreflang="<%= L.code === 'zh' ? 'zh-SG' : L.code %>" href="<%= urlFor(L.code) %>">
 <% }); %><link rel="alternate" hreflang="x-default" href="<%= urlFor('en') %>">
+<%
+var ogLocale = { en:'en_SG', zh:'zh_SG', ms:'ms_MY', ta:'ta_SG', th:'th_TH', vi:'vi_VN' };
+var ogImage = siteUrl + (typeof page !== 'undefined' && page && page.heroImage ? page.heroImage : '/images/hero-pets.jpg');
+%>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Enshrine Pets Afterlife Services 欣奉">
+<meta property="og:title" content="<%= pageTitle %>">
+<meta property="og:description" content="<%= pageDesc %>">
+<meta property="og:url" content="<%= urlFor(lang) %>">
+<meta property="og:image" content="<%= ogImage %>">
+<meta property="og:locale" content="<%= ogLocale[lang] || 'en_SG' %>">
+<% languages.forEach(function(L){ if (L.code !== lang) { %><meta property="og:locale:alternate" content="<%= ogLocale[L.code] || L.code %>">
+<% } }); %><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= pageTitle %>">
+<meta name="twitter:description" content="<%= pageDesc %>">
+<meta name="twitter:image" content="<%= ogImage %>">
 <% if (c.meta.favicon) { %><link rel="icon" href="<%= c.meta.favicon %>"<%- /\.svg(\?|$)/i.test(c.meta.favicon) ? ' type="image/svg+xml"' : '' %>>
 <link rel="apple-touch-icon" href="<%= c.meta.favicon %>"><% } %>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
