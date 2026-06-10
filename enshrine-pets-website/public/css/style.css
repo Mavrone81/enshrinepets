@@ -225,6 +225,9 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 
 /* CHAT BOT (scripted FAQ widget, bottom-left) */
 .chatbot{position:fixed;left:24px;bottom:24px;z-index:200}
+/* the [hidden] attribute must win over the display:flex set below (author
+   class selectors otherwise override the UA [hidden]{display:none} rule) */
+.chatbot [hidden]{display:none}
 .chatbot-launch{display:inline-flex;align-items:center;gap:9px;padding:13px 20px 13px 16px;border:none;cursor:pointer;border-radius:40px;background:linear-gradient(135deg,var(--royal-deep),var(--royal));color:#fff;font-family:'Noto Sans',sans-serif;font-size:.86rem;font-weight:600;letter-spacing:.04em;box-shadow:0 10px 30px rgba(20,80,207,.4);transition:transform .25s,box-shadow .25s}
 .chatbot-launch:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(20,80,207,.5)}
 .chatbot-launch svg{width:22px;height:22px;fill:#fff;flex:none}
