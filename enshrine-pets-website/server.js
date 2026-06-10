@@ -34,8 +34,10 @@ const DEFAULT_LANG = 'en';
 const LANGUAGES = [
   { code: 'en', label: 'English',       short: 'EN' },
   { code: 'zh', label: '中文',          short: '中' },
+  { code: 'ms', label: 'Bahasa Melayu', short: 'MS' },
   { code: 'ta', label: 'தமிழ்',         short: 'த' },
-  { code: 'ms', label: 'Bahasa Melayu', short: 'MS' }
+  { code: 'th', label: 'ไทย',           short: 'TH' },
+  { code: 'vi', label: 'Tiếng Việt',    short: 'VI' }
 ];
 const LANG_CODES = LANGUAGES.map(l => l.code);
 const isLang = (code) => LANG_CODES.includes(code);

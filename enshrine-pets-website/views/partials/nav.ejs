@@ -13,10 +13,18 @@ var langHref = function(code){ return navPath + (code === 'en' ? '' : (navPath.i
       <li class="nav-links-cta"><a class="btn btn-gold" href="<%= waLink %>"><%= c.nav.ctaLabel %></a></li>
     </ul>
     <div class="nav-right">
-      <div class="lang-switch" role="group" aria-label="Language">
-        <% languages.forEach(function(L){ %>
-          <a href="<%= langHref(L.code) %>" class="lang-opt<%= L.code === lang ? ' active' : '' %>" hreflang="<%= L.code === 'zh' ? 'zh-SG' : L.code %>" lang="<%= L.code %>"><%= L.short %></a>
-        <% }); %>
+      <% var curLang = languages.find(function(l){ return l.code === lang; }) || languages[0]; %>
+      <div class="lang-dd" id="lang-dd">
+        <button type="button" class="lang-dd-btn" id="lang-dd-btn" aria-haspopup="true" aria-expanded="false" aria-label="Select language">
+          <svg class="globe" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.92 6h-2.95a15.7 15.7 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4c.83 1.2 1.48 2.53 1.91 4h-3.82c.43-1.47 1.08-2.8 1.91-4zM4.26 14a7.96 7.96 0 0 1 0-4h3.38a16.6 16.6 0 0 0 0 4H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A8.03 8.03 0 0 1 5.08 16zm2.95-8H5.08a8.03 8.03 0 0 1 4.33-3.56A15.7 15.7 0 0 0 8.03 8zM12 20c-.83-1.2-1.48-2.53-1.91-4h3.82A13.6 13.6 0 0 1 12 20zm2.34-6H9.66a14.6 14.6 0 0 1 0-4h4.68a14.6 14.6 0 0 1 0 4zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14a16.6 16.6 0 0 0 0-4h3.38a7.96 7.96 0 0 1 0 4h-3.38z"/></svg>
+          <span class="lang-dd-current"><%= curLang.label %></span>
+          <svg class="chev" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <ul class="lang-dd-menu" role="menu" aria-label="Language">
+          <% languages.forEach(function(L){ %>
+            <li role="none"><a role="menuitem" class="lang-dd-item<%= L.code === lang ? ' active' : '' %>" href="<%= langHref(L.code) %>" hreflang="<%= L.code === 'zh' ? 'zh-SG' : L.code %>" lang="<%= L.code %>"><%= L.label %></a></li>
+          <% }); %>
+        </ul>
       </div>
       <a class="btn btn-gold nav-cta" href="<%= waLink %>"><%= c.nav.ctaLabel %></a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
@@ -27,15 +35,33 @@ var langHref = function(code){ return navPath + (code === 'en' ? '' : (navPath.i
 </nav>
 <script>
 (function(){
+  // Mobile hamburger menu
   var nav = document.querySelector('nav'),
       btn = document.querySelector('.nav-toggle'),
       menu = document.getElementById('nav-menu');
-  if(!btn) return;
-  function setOpen(open){
-    nav.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if(btn && menu){
+    var setOpen = function(open){
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    btn.addEventListener('click', function(){ setOpen(!nav.classList.contains('open')); });
+    menu.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false); });
   }
-  btn.addEventListener('click', function(){ setOpen(!nav.classList.contains('open')); });
-  menu.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false); });
+  // Language dropdown
+  var dd = document.getElementById('lang-dd'),
+      ddBtn = document.getElementById('lang-dd-btn');
+  if(dd && ddBtn){
+    ddBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = !dd.classList.contains('open');
+      dd.classList.toggle('open', open);
+      ddBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function(){
+      dd.classList.remove('open');
+      ddBtn.setAttribute('aria-expanded', 'false');
+    });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ dd.classList.remove('open'); ddBtn.setAttribute('aria-expanded','false'); } });
+  }
 })();
 </script>
