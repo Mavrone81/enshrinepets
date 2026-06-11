@@ -1,7 +1,7 @@
 <!-- Shared top navigation. Locals: c, lang, languages, canonicalPath -->
 <%
 var navPath = (typeof canonicalPath !== 'undefined' && canonicalPath) ? canonicalPath : '/';
-var langHref = function(code){ return navPath + (code === 'en' ? '' : (navPath.indexOf('?') === -1 ? '?lang=' : '&lang=') + code); };
+var langHref = function(code){ return navPath + (navPath.indexOf('?') === -1 ? '?lang=' : '&lang=') + code; };
 %>
 <nav>
   <div class="nav-inner">
