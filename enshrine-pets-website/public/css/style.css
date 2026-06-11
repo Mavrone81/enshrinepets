@@ -90,7 +90,7 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:150px 0 100px;
-  background:linear-gradient(160deg,#1b3464 0%,#213d6e 55%,#2c4c7b 100%)}
+  background:linear-gradient(160deg,#162b53 0%,#1b335b 55%,#253f66 100%)}
 /* soft gold glow accents */
 .hero::before{content:'';position:absolute;right:-6%;top:-10%;width:42%;height:55%;background:radial-gradient(circle at 70% 30%,rgba(198,165,83,.22),rgba(198,165,83,0) 62%);pointer-events:none}
 .hero::after{content:'';position:absolute;left:-8%;bottom:-12%;width:38%;height:52%;background:radial-gradient(circle at 30% 70%,rgba(198,165,83,.16),rgba(198,165,83,0) 62%);pointer-events:none}
