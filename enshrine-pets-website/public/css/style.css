@@ -102,7 +102,7 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .hero-values{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
 .hero-values span{font-family:'Noto Serif','Noto Serif SC','Noto Serif Thai','Noto Sans Tamil',serif;font-style:italic;font-weight:500;font-size:1.05rem;color:var(--gold-light);background:rgba(255,255,255,.06);border:1px solid rgba(198,165,83,.55);padding:6px 18px;border-radius:30px}
 .hero-img-wrap{position:relative}
-.hero-img-wrap img{border-radius:200px 200px 24px 24px;box-shadow:0 26px 70px rgba(0,0,0,.45);border:1px solid rgba(198,165,83,.6)}
+.hero-img-wrap img{border-radius:200px 200px 24px 24px;box-shadow:0 26px 70px rgba(0,0,0,.45);border:1px solid rgba(198,165,83,.6);filter:brightness(1.12) saturate(1.03)}
 .hero-img-wrap::after{content:'';position:absolute;inset:-16px;border:1px solid rgba(198,165,83,.5);border-radius:210px 210px 30px 30px;pointer-events:none}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
 
