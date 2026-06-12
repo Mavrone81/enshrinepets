@@ -244,7 +244,7 @@ const PAGE_ORDER = [
 const SERVICE_SLUGS = new Set(PAGE_ORDER.slice(0, 4));
 const LANG_HREF = (code) => (code === 'zh' ? 'zh-SG' : code);
 
-const siteUrlOf = (c) => ((c.meta && c.meta.siteUrl) || 'https://enshrinepet.com.sg').replace(/\/$/, '');
+const siteUrlOf = (c) => ((c.meta && c.meta.siteUrl) || 'https://enshrinepets.com.sg').replace(/\/$/, '');
 const cleanTel = (s) => String(s || '').replace(/[^0-9+]/g, '');
 const langSuffix = (path, code) => (code === 'en' ? '' : (path.indexOf('?') === -1 ? '?lang=' : '&lang=') + code);
 

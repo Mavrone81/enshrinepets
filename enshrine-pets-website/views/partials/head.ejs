@@ -13,7 +13,7 @@
 <title><%= pageTitle %></title>
 <meta name="description" content="<%= pageDesc %>">
 <%
-var siteUrl = (c.meta.siteUrl || 'https://enshrinepet.com.sg').replace(/\/$/, '');
+var siteUrl = (c.meta.siteUrl || 'https://enshrinepets.com.sg').replace(/\/$/, '');
 var cpath = (typeof canonicalPath !== 'undefined' && canonicalPath) ? canonicalPath : '/';
 var urlFor = function(code){ return siteUrl + cpath + (code === 'en' ? '' : (cpath.indexOf('?') === -1 ? '?lang=' : '&lang=') + code); };
 %>
