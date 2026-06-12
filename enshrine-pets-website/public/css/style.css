@@ -101,10 +101,9 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .hero p{color:#cdd7ee;font-size:1.08rem;max-width:480px;margin-bottom:34px}
 .hero-values{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
 .hero-values span{font-family:'Noto Serif','Noto Serif SC','Noto Serif Thai','Noto Sans Tamil',serif;font-style:italic;font-weight:500;font-size:1.05rem;color:var(--gold-light);background:rgba(255,255,255,.06);border:1px solid rgba(198,165,83,.55);padding:6px 18px;border-radius:30px}
-/* light-blue gradient panel behind the picture (Enshrine brand-image blue) */
-.hero-img-wrap{position:relative;background:linear-gradient(155deg,#e6f2ff 0%,#c2def9 52%,#a3cef4 100%);padding:20px;border-radius:214px 214px 34px 34px;box-shadow:0 24px 64px rgba(0,0,0,.42)}
-.hero-img-wrap img{border-radius:198px 198px 22px 22px;box-shadow:0 14px 36px rgba(31,61,122,.24);border:1px solid rgba(198,165,83,.6);filter:brightness(1.12) saturate(1.03)}
-.hero-img-wrap::after{content:'';position:absolute;inset:-12px;border:1px solid rgba(198,165,83,.5);border-radius:226px 226px 46px 46px;pointer-events:none}
+/* light-blue gradient card behind the picture (Enshrine brand-image blue) */
+.hero-img-wrap{position:relative;background:linear-gradient(150deg,#eaf4ff 0%,#bedcfb 52%,#9cc6f3 100%);padding:34px;border-radius:34px;box-shadow:0 26px 66px rgba(0,0,0,.42)}
+.hero-img-wrap img{border-radius:170px 170px 18px 18px;box-shadow:0 12px 30px rgba(31,61,122,.22);border:1px solid rgba(198,165,83,.6);filter:brightness(1.12) saturate(1.03)}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
 
 /* ABOUT STRIP (white content section) */
@@ -295,9 +294,8 @@ footer p{color:#9fb0d8;font-size:.82rem;letter-spacing:.06em}
   .hero p{margin-bottom:26px}
   .hero .btn{display:block;width:100%;text-align:center}
   .hero .btn+.btn,.hero a.btn-outline{margin-top:12px}
-  .hero-img-wrap{padding:14px;border-radius:132px 132px 28px 28px}
-  .hero-img-wrap img{border-radius:120px 120px 20px 20px}
-  .hero-img-wrap::after{inset:-9px;border-radius:142px 142px 34px 34px}
+  .hero-img-wrap{padding:20px;border-radius:24px}
+  .hero-img-wrap img{border-radius:120px 120px 16px 16px}
   .contact-card{padding:24px}
   .stat{padding:22px 16px}
   .stat b{font-size:1.7rem}
