@@ -40,10 +40,10 @@ section{padding:90px 0}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(20,40,84,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(198,165,83,.45);box-shadow:0 2px 20px rgba(0,0,0,.25)}
 .nav-inner{max-width:1140px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .nav-logo img{height:36px;width:auto}
-.nav-links{display:flex;gap:30px;align-items:center;list-style:none}
-.nav-links a{color:#dbe2f5;font-size:.86rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;transition:color .25s}
+.nav-links{display:flex;gap:24px;align-items:center;list-style:none}
+.nav-links a{color:#dbe2f5;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;font-weight:400;white-space:nowrap;transition:color .25s}
 .nav-links a:hover{color:var(--gold-light)}
-.btn{display:inline-block;padding:12px 30px;border-radius:40px;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:all .3s;cursor:pointer}
+.btn{display:inline-block;padding:12px 30px;border-radius:40px;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;white-space:nowrap;transition:all .3s;cursor:pointer}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#2e2206;box-shadow:0 6px 18px rgba(0,0,0,.28)}
 .btn-gold:hover{box-shadow:0 10px 28px rgba(0,0,0,.4);transform:translateY(-2px)}
 .btn-outline{border:1px solid var(--gold);color:var(--gold-light)}
@@ -70,7 +70,7 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .lang-dd-item{display:block;padding:10px 14px;border-radius:9px;font-size:.88rem;color:var(--ink);white-space:nowrap;transition:background .15s,color .15s}
 .lang-dd-item:hover{background:var(--sky-pale);color:var(--gold-deep)}
 .lang-dd-item.active{background:linear-gradient(135deg,var(--royal-deep),var(--royal));color:#fff;font-weight:600}
-@media(max-width:860px){
+@media(max-width:1080px){
   .nav-inner{gap:12px}
   .nav-cta{display:none}
   .nav-toggle{display:flex}
