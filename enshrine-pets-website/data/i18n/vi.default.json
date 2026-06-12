@@ -6,20 +6,42 @@
   "nav": {
     "ctaLabel": "WhatsApp cho chúng tôi",
     "links": [
-      { "label": "Hỏa táng" },
-      { "label": "Lưu giữ tro cốt" },
-      { "label": "Rải tro xuống biển" },
-      { "label": "Nghi thức tôn giáo" },
-      { "label": "Bảng giá" },
-      { "label": "Về chúng tôi" },
-      { "label": "Liên hệ" }
+      {
+        "label": "Trang chủ"
+      },
+      {
+        "label": "Hỏa táng"
+      },
+      {
+        "label": "Lưu giữ tro cốt"
+      },
+      {
+        "label": "Rải tro xuống biển"
+      },
+      {
+        "label": "Nghi thức tôn giáo"
+      },
+      {
+        "label": "Bảng giá"
+      },
+      {
+        "label": "Về chúng tôi"
+      },
+      {
+        "label": "Liên hệ"
+      }
     ]
   },
   "hero": {
     "headingLead": "Tiễn biệt bằng yêu thương,",
     "headingEm": "chăm sóc bằng tận tâm",
     "paragraph": "Enshrine cam kết mang đến dịch vụ hậu sự trang trọng cho người bạn đồng hành thân yêu đã khuất của bạn, đáp ứng mọi nhu cầu và mối quan tâm của từng gia đình — để bạn có thể tiếc thương, tưởng nhớ và nói lời tạm biệt một cách trang nghiêm.",
-    "values": ["Tin cậy", "Tôn trọng", "Tận tâm", "Cam kết"],
+    "values": [
+      "Tin cậy",
+      "Tôn trọng",
+      "Tận tâm",
+      "Cam kết"
+    ],
     "primaryBtnLabel": "Dịch vụ của chúng tôi",
     "secondaryBtnLabel": "Khu lưu giữ tro cốt",
     "imageAlt": "Một chú mèo và một chú chó đang nghỉ ngơi yên bình bên nhau"
@@ -30,10 +52,22 @@
     "titleEm": "trọn gói",
     "lead": "Chúng tôi hiểu mất đi một người bạn đồng hành thân yêu đau lòng đến nhường nào. Hãy để Enshrine lo liệu mọi sắp xếp và giữ cho bạn khoảng lặng để tiếc thương và nói lời tạm biệt cuối cùng. Từ hỏa táng, rải tro xuống biển đến lưu giữ tro cốt, vật lưu niệm và nghi thức tôn giáo — mọi chi tiết đều được chăm sóc một cách trang trọng.",
     "stats": [
-      { "value": "10,000+", "label": "Ô lưu tro" },
-      { "value": "Tham quan", "label": "Theo lịch hẹn" },
-      { "value": "Sở hữu vĩnh viễn", "label": "Đầu tiên tại Singapore" },
-      { "value": "4", "label": "Tôn giáo phục vụ" }
+      {
+        "value": "10,000+",
+        "label": "Ô lưu tro"
+      },
+      {
+        "value": "Tham quan",
+        "label": "Theo lịch hẹn"
+      },
+      {
+        "value": "Sở hữu vĩnh viễn",
+        "label": "Đầu tiên tại Singapore"
+      },
+      {
+        "value": "4",
+        "label": "Tôn giáo phục vụ"
+      }
     ]
   },
   "services": {
@@ -46,28 +80,45 @@
         "imageAlt": "Sảnh tiễn biệt hỏa táng riêng",
         "title": "Hỏa táng thú cưng riêng",
         "desc": "Hỏa táng riêng từng thú cưng cho phép gia đình và bạn bè nói lời tạm biệt cuối cùng một cách riêng tư và chứng kiến toàn bộ quá trình.",
-        "items": ["Đón thú cưng thân yêu của bạn", "Trang trí hoa", "Hũ tro & giấy chứng nhận hỏa táng miễn phí", "Tùy chọn nhặt tro cốt, nếu bạn muốn tự an táng thú cưng"],
+        "items": [
+          "Đón thú cưng thân yêu của bạn",
+          "Trang trí hoa",
+          "Hũ tro & giấy chứng nhận hỏa táng miễn phí",
+          "Tùy chọn nhặt tro cốt, nếu bạn muốn tự an táng thú cưng"
+        ],
         "linkLabel": "Tìm hiểu thêm"
       },
       {
         "imageAlt": "Dịch vụ chủ lễ cho thú cưng — lời tiễn biệt cuối cùng với hoa",
         "title": "Dịch vụ chủ lễ cho thú cưng",
         "desc": "Buổi cầu nguyện và đọc điếu văn 30 phút gồm Chạm tay lần cuối, Tưởng niệm và Tiễn biệt cuối cùng — tôn vinh mối gắn kết bạn đã chia sẻ.",
-        "items": ["Lễ tiễn biệt do người chủ lễ dẫn dắt", "Tùy chọn tôn giáo: Phật giáo, Đạo giáo, Tin Lành & Công giáo", "Video tưởng niệm ghi lại những khoảnh khắc cuối cùng quý giá của thú cưng"],
+        "items": [
+          "Lễ tiễn biệt do người chủ lễ dẫn dắt",
+          "Tùy chọn tôn giáo: Phật giáo, Đạo giáo, Tin Lành & Công giáo",
+          "Video tưởng niệm ghi lại những khoảnh khắc cuối cùng quý giá của thú cưng"
+        ],
         "linkLabel": "Tìm hiểu thêm"
       },
       {
         "imageAlt": "Rải tro thú cưng xuống biển riêng tư",
         "title": "Rải tro xuống biển riêng tư",
         "desc": "Đưa tro cốt của thú cưng thân yêu trở về với thiên nhiên một cách riêng tư, kèm tùy chọn nghi thức tôn giáo trong buổi lễ rải tro.",
-        "items": ["Thuyền thuê riêng cho gia đình bạn", "Sắp xếp cùng vị chức sắc tôn giáo phù hợp", "Cố vấn của chúng tôi đồng hành và hướng dẫn bạn suốt hành trình"],
+        "items": [
+          "Thuyền thuê riêng cho gia đình bạn",
+          "Sắp xếp cùng vị chức sắc tôn giáo phù hợp",
+          "Cố vấn của chúng tôi đồng hành và hướng dẫn bạn suốt hành trình"
+        ],
         "linkLabel": "Tìm hiểu thêm"
       },
       {
         "imageAlt": "Ô lưu tro với hũ tre thiết kế riêng",
         "title": "Lưu giữ tro cốt & vật lưu niệm",
         "desc": "Sau lễ tiễn biệt trang trọng, hãy tôn vinh thú cưng đã bước qua cầu vồng bằng nơi an nghỉ vĩnh viễn tại khu lưu giữ tro cốt Geylang của chúng tôi — hoặc giữ chúng bên cạnh bằng một vật lưu niệm riêng.",
-        "items": ["Ô lưu tro đơn & ô gia đình", "Hũ tre thiết kế riêng kèm ảnh, tên & ngày tháng", "Vật lưu niệm tưởng nhớ"],
+        "items": [
+          "Ô lưu tro đơn & ô gia đình",
+          "Hũ tre thiết kế riêng kèm ảnh, tên & ngày tháng",
+          "Vật lưu niệm tưởng nhớ"
+        ],
         "linkLabel": "Tìm hiểu thêm"
       }
     ]
@@ -78,10 +129,22 @@
     "titleEm": "theo tôn giáo",
     "lead": "Chúng tôi cung cấp dịch vụ tang lễ theo bốn tôn giáo, mỗi nghi lễ được thực hiện với nghi thức và sự tôn kính phù hợp.",
     "faiths": [
-      { "imageAlt": "Bố trí hỏa táng thú cưng theo Phật giáo", "label": "Phật giáo" },
-      { "imageAlt": "Bố trí hỏa táng thú cưng theo Đạo giáo", "label": "Đạo giáo" },
-      { "imageAlt": "Bố trí hỏa táng thú cưng theo Tin Lành", "label": "Tin Lành" },
-      { "imageAlt": "Bố trí hỏa táng thú cưng theo Công giáo", "label": "Công giáo" }
+      {
+        "imageAlt": "Bố trí hỏa táng thú cưng theo Phật giáo",
+        "label": "Phật giáo"
+      },
+      {
+        "imageAlt": "Bố trí hỏa táng thú cưng theo Đạo giáo",
+        "label": "Đạo giáo"
+      },
+      {
+        "imageAlt": "Bố trí hỏa táng thú cưng theo Tin Lành",
+        "label": "Tin Lành"
+      },
+      {
+        "imageAlt": "Bố trí hỏa táng thú cưng theo Công giáo",
+        "label": "Công giáo"
+      }
     ]
   },
   "columbarium": {
@@ -99,10 +162,18 @@
       "Khu vui chơi cho thú cưng ở mỗi tầng — hãy mang theo thú cưng còn sống của bạn"
     ],
     "gallery": [
-      { "imageAlt": "Hành lang bên trong khu lưu tro" },
-      { "imageAlt": "Bức tường ô lưu tro với ánh sáng đặc trưng" },
-      { "imageAlt": "Sảnh thang máy khu lưu tro" },
-      { "imageAlt": "Khu thư giãn và vui chơi cho thú cưng" }
+      {
+        "imageAlt": "Hành lang bên trong khu lưu tro"
+      },
+      {
+        "imageAlt": "Bức tường ô lưu tro với ánh sáng đặc trưng"
+      },
+      {
+        "imageAlt": "Sảnh thang máy khu lưu tro"
+      },
+      {
+        "imageAlt": "Khu thư giãn và vui chơi cho thú cưng"
+      }
     ]
   },
   "niches": {

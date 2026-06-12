@@ -11,6 +11,10 @@
     "ctaLink": "https://wa.me/6590099234",
     "links": [
       {
+        "label": "Home",
+        "href": "/"
+      },
+      {
         "label": "Cremation",
         "href": "/pet-cremation-singapore"
       },

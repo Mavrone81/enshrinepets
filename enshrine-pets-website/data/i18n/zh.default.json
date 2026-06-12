@@ -7,6 +7,9 @@
     "ctaLabel": "WhatsApp 联系我们",
     "links": [
       {
+        "label": "首页"
+      },
+      {
         "label": "火化"
       },
       {
