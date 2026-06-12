@@ -65,69 +65,6 @@
   </div>
 </section>
 
-<section class="religious" id="religious">
-  <div class="container">
-    <span class="eyebrow"><%= c.religious.eyebrow %></span>
-    <h2 class="section-title"><%= c.religious.titleLead %> <em><%= c.religious.titleEm %></em></h2>
-    <div class="gold-rule"></div>
-    <p class="lead"><%= c.religious.lead %></p>
-    <div class="faith-grid">
-      <% c.religious.faiths.forEach(function(f){ %>
-        <div class="faith-card"><img src="<%= f.image %>" alt="<%= f.imageAlt %>" loading="lazy" decoding="async"><span><%= f.label %></span></div>
-      <% }); %>
-    </div>
-  </div>
-</section>
-
-<section class="colum" id="columbarium">
-  <div class="container">
-    <div class="colum-grid">
-      <img class="building" src="<%= c.columbarium.buildingImage %>" alt="<%= c.columbarium.buildingImageAlt %>" loading="lazy" decoding="async">
-      <div>
-        <span class="badge"><%= c.columbarium.badge %></span>
-        <h2 class="section-title"><%= c.columbarium.titleLead %> <em><%= c.columbarium.titleEm %></em></h2>
-        <div class="gold-rule"></div>
-        <p class="lead"><%- c.columbarium.lead %></p>
-        <div class="feat-list">
-          <% c.columbarium.features.forEach(function(ft){ %>
-            <div class="feat"><%= ft %></div>
-          <% }); %>
-        </div>
-      </div>
-    </div>
-    <div class="gallery">
-      <% c.columbarium.gallery.forEach(function(g){ %>
-        <img src="<%= g.image %>" alt="<%= g.imageAlt %>" loading="lazy" decoding="async">
-      <% }); %>
-    </div>
-  </div>
-</section>
-
-<section class="niches" id="niches">
-  <div class="container">
-    <span class="eyebrow"><%= c.niches.eyebrow %></span>
-    <h2 class="section-title"><%= c.niches.titleLead %> <em><%= c.niches.titleEm %></em></h2>
-    <div class="gold-rule"></div>
-    <% c.niches.rows.forEach(function(row){ %>
-    <div class="niche-row<%= row.flip ? ' flip' : '' %>">
-      <% if (!row.flip) { %>
-        <img src="<%= row.image %>" alt="<%= row.imageAlt %>" loading="lazy" decoding="async">
-        <div class="txt">
-          <h3><%= row.titleLead %> <span><%= row.titleEm %></span></h3>
-          <p><%= row.desc %></p>
-        </div>
-      <% } else { %>
-        <div class="txt">
-          <h3><%= row.titleLead %> <span><%= row.titleEm %></span></h3>
-          <p><%= row.desc %></p>
-        </div>
-        <img src="<%= row.image %>" alt="<%= row.imageAlt %>" loading="lazy" decoding="async">
-      <% } %>
-    </div>
-    <% }); %>
-  </div>
-</section>
-
 <section class="contact" id="contact">
   <div class="container">
     <span class="eyebrow"><%= c.contact.eyebrow %></span>

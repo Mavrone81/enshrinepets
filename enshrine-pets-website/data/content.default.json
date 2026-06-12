@@ -54,7 +54,7 @@
     "primaryBtnLabel": "Our Services",
     "primaryBtnLink": "#services",
     "secondaryBtnLabel": "The Columbarium",
-    "secondaryBtnLink": "#columbarium",
+    "secondaryBtnLink": "/pet-columbarium-singapore",
     "image": "/images/hero-pets.jpg",
     "imageAlt": "A cat and dog resting peacefully together"
   },
