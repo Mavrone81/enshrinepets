@@ -300,3 +300,16 @@ footer p{color:#9fb0d8;font-size:.82rem;letter-spacing:.06em}
   .stat{padding:22px 16px}
   .stat b{font-size:1.7rem}
 }
+
+/* ---------------------------------------------------------------------------
+   Chinese (zh) typography — classic Xing Kai (行楷) calligraphy.
+   Scoped to <html lang="zh"> so English is unaffected. Uses system Xing Kai
+   fonts (Xingkai SC ships on macOS/iOS; STXingkai/华文行楷 on others) with
+   KaiTi (楷体, ships on Windows) as a graceful fallback. No webfont download.
+--------------------------------------------------------------------------- */
+html[lang="zh"] body,
+html[lang="zh"] h1, html[lang="zh"] h2, html[lang="zh"] h3, html[lang="zh"] h4, html[lang="zh"] h5,
+html[lang="zh"] p, html[lang="zh"] a, html[lang="zh"] span, html[lang="zh"] li, html[lang="zh"] em, html[lang="zh"] strong, html[lang="zh"] b,
+html[lang="zh"] button, html[lang="zh"] .btn, html[lang="zh"] input, html[lang="zh"] textarea, html[lang="zh"] summary{
+  font-family:"STXingkai","华文行楷","Xingkai SC","KaiTi SC","KaiTi","楷体","DFKai-SB","BiauKai",serif !important;
+}
