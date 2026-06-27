@@ -18,7 +18,12 @@
   --ink-soft:#3a4f86;
   --text-light:#e7eefc;
   --white:#ffffff;
-  --sky-pale:#eaf3ff;
+  /* warm wood/cream tones — the contrast against the sky blue (matches the
+     wooden ledge + cream fur in the brand photo) */
+  --cream:#f8f1e2;
+  --wood:#c69a63;
+  --wood-deep:#8a5f2a;
+  --sky-pale:#f8f1e2;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -36,7 +41,7 @@ section{padding:90px 0}
 .gold-rule{width:64px;height:3px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));margin:22px 0;border-radius:2px}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(234,243,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(216,178,90,.55);box-shadow:0 2px 20px rgba(20,80,207,.08)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,241,226,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(198,154,99,.5);box-shadow:0 2px 20px rgba(138,95,42,.12)}
 .nav-inner{max-width:1140px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .nav-logo img{height:48px;width:auto}
 .nav-links{display:flex;gap:24px;align-items:center;list-style:none}
@@ -77,8 +82,8 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
   .nav-toggle{display:flex}
   /* slide-down dropdown panel */
   .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
-    background:rgba(234,243,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(216,178,90,.55);
-    box-shadow:0 16px 30px rgba(20,80,207,.18);
+    background:rgba(248,241,226,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(198,154,99,.5);
+    box-shadow:0 16px 30px rgba(138,95,42,.18);
     max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .35s ease,opacity .25s ease,visibility .25s}
   nav.open .nav-links{max-height:80vh;opacity:1;visibility:visible}
   .nav-links li{border-top:1px solid rgba(20,80,207,.12)}
@@ -270,9 +275,9 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 @media(prefers-reduced-motion:reduce){.chatbot-launch{transition:none}}
 
 /* FOOTER */
-footer{background:linear-gradient(180deg,#1450cf,#0b3596);padding:36px 0;text-align:center}
+footer{background:linear-gradient(180deg,#c69a63,#8a5f2a);padding:36px 0;text-align:center}
 footer img{height:34px;margin:0 auto 12px;opacity:.95}
-footer p{color:#cdd9f5;font-size:.82rem;letter-spacing:.06em}
+footer p{color:#f4ead6;font-size:.82rem;letter-spacing:.06em}
 
 /* MOBILE SPACING & TYPOGRAPHY */
 @media(max-width:860px){
