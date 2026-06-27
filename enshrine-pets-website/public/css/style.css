@@ -92,7 +92,7 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:150px 0 100px;
   background:linear-gradient(160deg,#122445 0%,#162a4c 55%,#1f3455 100%)}
 /* right side transitions to light sky-blue, cut from the navy with a curve */
-.hero::before{content:'';position:absolute;top:0;right:0;bottom:0;width:58%;background:linear-gradient(150deg,#eaf4ff 0%,#bedcfb 52%,#9cc6f3 100%);clip-path:ellipse(88% 150% at 100% 50%);z-index:0;pointer-events:none}
+.hero::before{content:'';position:absolute;top:0;right:0;bottom:0;width:62%;background:linear-gradient(150deg,#eaf4ff 0%,#bedcfb 52%,#9cc6f3 100%);clip-path:ellipse(80% 92% at 100% 50%);z-index:0;pointer-events:none}
 /* soft gold glow on the navy (left) side */
 .hero::after{content:'';position:absolute;left:-8%;bottom:-12%;width:38%;height:52%;background:radial-gradient(circle at 30% 70%,rgba(198,165,83,.16),rgba(198,165,83,0) 62%);z-index:0;pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
