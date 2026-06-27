@@ -33,11 +33,7 @@ const isImageKey = (key) => IMAGE_KEYS.includes(key);
 const DEFAULT_LANG = 'en';
 const LANGUAGES = [
   { code: 'en', label: 'English',       short: 'EN' },
-  { code: 'zh', label: '中文',          short: '中' },
-  { code: 'ms', label: 'Bahasa Melayu', short: 'MS' },
-  { code: 'ta', label: 'தமிழ்',         short: 'த' },
-  { code: 'th', label: 'ไทย',           short: 'TH' },
-  { code: 'vi', label: 'Tiếng Việt',    short: 'VI' }
+  { code: 'zh', label: '中文',          short: '中' }
 ];
 const LANG_CODES = LANGUAGES.map(l => l.code);
 const isLang = (code) => LANG_CODES.includes(code);
