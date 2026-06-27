@@ -1,30 +1,29 @@
 :root{
-  /* Dark royal-navy + gold theme — matched to the Singapore Buddhist Funeral
-     sister site and darkened one notch. Dark navy page/hero/panels with light
-     text; white content sections (dark text) for readability; gold accents.
-       --navy*  = dark navy backgrounds (page, hero, panels, footer)
-       --royal* = navy used for links + gradient mids
+  /* Light sky-blue brand theme — soft blue gradient surfaces, deep royal-navy
+     ink text, vivid royal-blue rich panels for emphasis, warm gold accents.
+       --sky-pale = soft blue light-section background
+       --navy/--royal = vivid royal-blue (rich panels, links, emphasis)
        --gold*  = warm golds (logo, buttons, rules, accents)
-       --ink*   = dark text on the white content sections
-       --text-light = light text on the dark sections */
-  --navy:#1f3d7a;
-  --navy-deep:#16305f;
-  --royal:#2a4c8e;
-  --royal-deep:#16305f;
-  --gold:#c6a553;
-  --gold-light:#ddc78a;
-  --gold-deep:#9a7c2c;
-  --gold-pale:#efe2bf;
-  --ink:#16294d;
-  --ink-soft:#3c4d7a;
-  --text-light:#e7ebf6;
+       --ink*   = deep royal-navy text on light surfaces
+       --text-light = light text on the rich blue panels */
+  --navy:#1450cf;
+  --navy-deep:#0b3596;
+  --royal:#1450cf;
+  --royal-deep:#0b3596;
+  --gold:#d8b25a;
+  --gold-light:#f3d480;
+  --gold-deep:#a87f2b;
+  --gold-pale:#f7ecc6;
+  --ink:#16306b;
+  --ink-soft:#3a4f86;
+  --text-light:#e7eefc;
   --white:#ffffff;
-  --sky-pale:#eef2fb;
+  --sky-pale:#eaf3ff;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Noto Sans','Noto Sans SC','Noto Sans Thai','Noto Sans Tamil',sans-serif;color:var(--ink);line-height:1.7;font-weight:400;
-  background:linear-gradient(180deg,#24478c 0%,#1f3d7a 50%,#16305f 100%);background-attachment:fixed}
+  background:linear-gradient(180deg,#cfe6ff 0%,#a8d0f5 52%,#7fb0ea 100%);background-attachment:fixed}
 h1,h2,h3,h4{font-family:'Noto Serif','Noto Serif SC','Noto Serif Thai','Noto Sans Tamil',serif;font-weight:600;color:var(--ink);line-height:1.2}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
@@ -37,32 +36,34 @@ section{padding:90px 0}
 .gold-rule{width:64px;height:3px;background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));margin:22px 0;border-radius:2px}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(20,40,84,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(198,165,83,.45);box-shadow:0 2px 20px rgba(0,0,0,.25)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(234,243,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(216,178,90,.55);box-shadow:0 2px 20px rgba(20,80,207,.08)}
 .nav-inner{max-width:1140px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .nav-logo img{height:48px;width:auto}
 .nav-links{display:flex;gap:24px;align-items:center;list-style:none}
-.nav-links a{color:#dbe2f5;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;font-weight:400;white-space:nowrap;transition:color .25s}
-.nav-links a:hover{color:var(--gold-light)}
+.nav-links a{color:var(--ink);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;white-space:nowrap;transition:color .25s}
+.nav-links a:hover{color:var(--gold-deep)}
 .btn{display:inline-block;padding:12px 30px;border-radius:40px;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;white-space:nowrap;transition:all .3s;cursor:pointer}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#2e2206;box-shadow:0 6px 18px rgba(0,0,0,.28)}
 .btn-gold:hover{box-shadow:0 10px 28px rgba(0,0,0,.4);transform:translateY(-2px)}
-.btn-outline{border:1px solid var(--gold);color:var(--gold-light)}
-.btn-outline:hover{background:var(--gold);color:#2e2206}
+.btn-outline{border:1px solid var(--royal);color:var(--royal)}
+.btn-outline:hover{background:var(--royal);color:var(--white)}
+.religious .btn-outline,.contact .btn-outline,.page-cta .btn-outline{border-color:var(--gold-light);color:var(--gold-light)}
+.religious .btn-outline:hover,.contact .btn-outline:hover,.page-cta .btn-outline:hover{background:var(--gold-light);color:#2e2206}
 .nav-cta{padding:9px 22px}
 .nav-links-cta{display:none}
-.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:38px;padding:8px;border:1px solid rgba(219,226,245,.35);border-radius:10px;background:rgba(255,255,255,.08);cursor:pointer}
-.nav-toggle span{display:block;height:2px;width:100%;background:#dbe2f5;border-radius:2px;transition:transform .3s,opacity .2s}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:38px;padding:8px;border:1px solid rgba(20,80,207,.3);border-radius:10px;background:rgba(255,255,255,.6);cursor:pointer}
+.nav-toggle span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .2s}
 nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 nav.open .nav-toggle span:nth-child(2){opacity:0}
 nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .nav-right{display:flex;align-items:center;gap:16px}
 /* Language dropdown */
 .lang-dd{position:relative}
-.lang-dd-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border:1px solid rgba(219,226,245,.4);border-radius:30px;background:rgba(255,255,255,.08);color:#dbe2f5;font-family:'Noto Sans',sans-serif;font-size:.82rem;font-weight:500;line-height:1;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
-.lang-dd-btn:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(255,255,255,.14)}
+.lang-dd-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border:1px solid rgba(20,80,207,.3);border-radius:30px;background:rgba(255,255,255,.6);color:var(--ink);font-family:'Noto Sans',sans-serif;font-size:.82rem;font-weight:500;line-height:1;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+.lang-dd-btn:hover{border-color:var(--gold);color:var(--gold-deep);background:#fff}
 .lang-dd-btn .globe{width:15px;height:15px;fill:currentColor;flex:none}
 .lang-dd-btn .chev{width:11px;height:11px;fill:currentColor;flex:none;transition:transform .25s}
-.lang-dd.open .lang-dd-btn{border-color:var(--gold);color:var(--gold-light);background:rgba(255,255,255,.14)}
+.lang-dd.open .lang-dd-btn{border-color:var(--gold);color:var(--gold-deep);background:#fff}
 .lang-dd.open .lang-dd-btn .chev{transform:rotate(180deg)}
 .lang-dd-current{white-space:nowrap}
 .lang-dd-menu{position:absolute;top:calc(100% + 10px);right:0;min-width:176px;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;box-shadow:0 18px 44px rgba(0,0,0,.32);padding:6px;list-style:none;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .2s,visibility .2s;z-index:130}
@@ -76,11 +77,11 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
   .nav-toggle{display:flex}
   /* slide-down dropdown panel */
   .nav-links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
-    background:rgba(20,40,84,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(198,165,83,.45);
-    box-shadow:0 16px 30px rgba(0,0,0,.35);
+    background:rgba(234,243,255,.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(216,178,90,.55);
+    box-shadow:0 16px 30px rgba(20,80,207,.18);
     max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .35s ease,opacity .25s ease,visibility .25s}
   nav.open .nav-links{max-height:80vh;opacity:1;visibility:visible}
-  .nav-links li{border-top:1px solid rgba(219,226,245,.12)}
+  .nav-links li{border-top:1px solid rgba(20,80,207,.12)}
   .nav-links li:first-child{border-top:0}
   .nav-links a{display:block;padding:16px 24px;font-size:.92rem}
   .nav-links-cta{display:block;padding:16px 24px}
@@ -90,17 +91,17 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:150px 0 100px;
-  background:linear-gradient(160deg,#122445 0%,#162a4c 55%,#1f3455 100%)}
+  background:linear-gradient(160deg,#dceeff 0%,#b9dbfb 55%,#93c4f4 100%)}
 /* soft gold glow accents */
 .hero::before{content:'';position:absolute;right:-6%;top:-10%;width:42%;height:55%;background:radial-gradient(circle at 70% 30%,rgba(198,165,83,.22),rgba(198,165,83,0) 62%);pointer-events:none}
 .hero::after{content:'';position:absolute;left:-8%;bottom:-12%;width:38%;height:52%;background:radial-gradient(circle at 30% 70%,rgba(198,165,83,.16),rgba(198,165,83,0) 62%);pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:2}
 .hero-logo{height:74px;width:auto;margin-bottom:34px}
-.hero h1{color:#fff;font-size:clamp(2.6rem,5.5vw,4rem);font-weight:600;margin-bottom:22px}
-.hero h1 em{font-style:italic;color:var(--gold-light)}
-.hero p{color:#cdd7ee;font-size:1.08rem;max-width:480px;margin-bottom:34px}
+.hero h1{color:var(--ink);font-size:clamp(2.6rem,5.5vw,4rem);font-weight:600;margin-bottom:22px}
+.hero h1 em{font-style:italic;color:var(--gold-deep)}
+.hero p{color:var(--ink-soft);font-size:1.08rem;max-width:480px;margin-bottom:34px}
 .hero-values{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
-.hero-values span{font-family:'Noto Serif','Noto Serif SC','Noto Serif Thai','Noto Sans Tamil',serif;font-style:italic;font-weight:500;font-size:1.05rem;color:var(--gold-light);background:rgba(255,255,255,.06);border:1px solid rgba(198,165,83,.55);padding:6px 18px;border-radius:30px}
+.hero-values span{font-family:'Noto Serif','Noto Serif SC','Noto Serif Thai','Noto Sans Tamil',serif;font-style:italic;font-weight:500;font-size:1.05rem;color:var(--gold-deep);background:rgba(255,255,255,.55);border:1px solid rgba(216,178,90,.6);padding:6px 18px;border-radius:30px}
 /* light-blue gradient card behind the picture (Enshrine brand-image blue) */
 .hero-img-wrap{position:relative;background:linear-gradient(150deg,#eaf4ff 0%,#bedcfb 52%,#9cc6f3 100%);padding:34px;border-radius:34px;box-shadow:0 26px 66px rgba(0,0,0,.42)}
 .hero-img-wrap img{border-radius:170px 170px 18px 18px;box-shadow:0 12px 30px rgba(31,61,122,.22);border:1px solid rgba(198,165,83,.6);filter:brightness(1.12) saturate(1.03)}
@@ -166,7 +167,7 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 @media(max-width:860px){.niche-row{grid-template-columns:1fr}.niche-row.flip .txt{order:-1}}
 
 /* CONTACT — rich navy panel */
-.contact{position:relative;overflow:hidden;background:linear-gradient(135deg,#13284f 0%,var(--navy-deep) 55%,var(--navy) 100%)}
+.contact{position:relative;overflow:hidden;background:linear-gradient(135deg,#0b3596 0%,var(--royal-deep) 55%,var(--royal) 100%)}
 .contact::before{content:'';position:absolute;right:-10%;top:-30%;width:50%;height:160%;background:radial-gradient(circle,rgba(221,199,138,.16),transparent 65%);pointer-events:none}
 .contact .eyebrow{color:var(--gold-light)}
 .contact .section-title{color:var(--white)}
@@ -198,8 +199,8 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .svc-more:hover{color:var(--gold-deep)}
 
 /* INNER PAGES (page.ejs) */
-.page-hero{position:relative;padding:150px 0 50px;background:linear-gradient(160deg,#16305f 0%,#1f3d7a 60%,#27508f 100%)}
-.breadcrumb{font-size:.82rem;letter-spacing:.04em;color:#aebbd8;margin-bottom:18px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.page-hero{position:relative;padding:150px 0 50px;background:linear-gradient(160deg,#0b3596 0%,#1450cf 60%,#3d74e0 100%)}
+.breadcrumb{font-size:.82rem;letter-spacing:.04em;color:#c2d4f7;margin-bottom:18px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .breadcrumb a{color:var(--gold-light)}
 .breadcrumb a:hover{color:#fff}
 .breadcrumb span[aria-current]{color:#dbe2f5}
@@ -269,9 +270,9 @@ nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 @media(prefers-reduced-motion:reduce){.chatbot-launch{transition:none}}
 
 /* FOOTER */
-footer{background:linear-gradient(180deg,#16305f,#0c1f42);padding:36px 0;text-align:center}
+footer{background:linear-gradient(180deg,#1450cf,#0b3596);padding:36px 0;text-align:center}
 footer img{height:34px;margin:0 auto 12px;opacity:.95}
-footer p{color:#9fb0d8;font-size:.82rem;letter-spacing:.06em}
+footer p{color:#cdd9f5;font-size:.82rem;letter-spacing:.06em}
 
 /* MOBILE SPACING & TYPOGRAPHY */
 @media(max-width:860px){
