@@ -159,6 +159,12 @@ function setPath(obj, dotted, value) {
 // ---------------------------------------------------------------------------
 // App setup
 // ---------------------------------------------------------------------------
+// Behind nginx, which sets X-Forwarded-For with $proxy_add_x_forwarded_for.
+// Without this, req.ip is 127.0.0.1 for every request and any per-IP limit
+// collapses every visitor onto a single key. Port 20101 is firewalled by ufw,
+// so nginx is the only path in and this header cannot be forged from outside.
+app.set('trust proxy', 1);
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 // Serve a .webp twin when the browser accepts WebP and one exists next to the
@@ -375,6 +381,45 @@ app.get('/:slug', (req, res, next) => {
 // ---------------------------------------------------------------------------
 // Admin: auth
 // ---------------------------------------------------------------------------
+
+// 5 FAILED logins per (username, IP) per 15 minutes.
+//
+// Keyed on the pair, deliberately. Per-IP alone misses credential stuffing that
+// rotates addresses while walking a list of accounts. Per-username alone hands
+// anyone a denial-of-service against a known account -- fail five times and the
+// real operator is locked out, no password required. The pair stops distributed
+// stuffing from grinding one account while confining any lockout to the
+// attacker's own address.
+//
+// Counts failures only and clears on success, so an operator who mistypes once
+// and then gets it right is never penalised. The window self-clears, so nothing
+// here can leave someone locked out waiting on an admin. This app has more than
+// one admin user, which is exactly why the username belongs in the key.
+const LOGIN_WINDOW_MS = 15 * 60 * 1000;
+const LOGIN_MAX_FAILS = 5;
+const loginFails = new Map();
+setInterval(() => {
+  const now = Date.now();
+  for (const [k, e] of loginFails) if (now > e.resetAt) loginFails.delete(k);
+}, LOGIN_WINDOW_MS).unref();
+
+// req.ip, NOT the first X-Forwarded-For entry: nginx APPENDS the real peer to
+// whatever the client sent, so the first entry is attacker-supplied. Express
+// derives req.ip from the right under `trust proxy: 1`, which the client
+// cannot forge.
+function loginKey(req, username) {
+  return String(username || '').trim().toLowerCase().slice(0, 128) + '|' + (req.ip || 'unknown');
+}
+function loginBlocked(key) {
+  const e = loginFails.get(key);
+  return !!e && Date.now() <= e.resetAt && e.n >= LOGIN_MAX_FAILS;
+}
+function loginFailed(key) {
+  const now = Date.now(), e = loginFails.get(key);
+  if (!e || now > e.resetAt) loginFails.set(key, { n: 1, resetAt: now + LOGIN_WINDOW_MS });
+  else e.n += 1;
+}
+
 app.get('/admin/login', (req, res) => {
   if (req.session.user) return res.redirect('/admin');
   res.render('login');
@@ -382,11 +427,18 @@ app.get('/admin/login', (req, res) => {
 
 app.post('/admin/login', (req, res) => {
   const { username, password } = req.body;
+  const key = loginKey(req, username);
+  if (loginBlocked(key)) {
+    flash(req, 'error', 'Too many failed attempts. Please try again in 15 minutes.');
+    return res.redirect('/admin/login');
+  }
   const user = loadUsers().find(u => u.username === (username || '').trim());
   if (user && bcrypt.compareSync(password || '', user.passwordHash)) {
+    loginFails.delete(key);
     req.session.user = { username: user.username };
     return res.redirect('/admin');
   }
+  loginFailed(key);
   flash(req, 'error', 'Invalid username or password.');
   res.redirect('/admin/login');
 });
