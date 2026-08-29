@@ -46,7 +46,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(20,40,84,.92
 .btn{display:inline-block;padding:12px 30px;border-radius:40px;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;white-space:nowrap;transition:all .3s;cursor:pointer}
 .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#2e2206;box-shadow:0 6px 18px rgba(0,0,0,.28)}
 .btn-gold:hover{box-shadow:0 10px 28px rgba(0,0,0,.4);transform:translateY(-2px)}
-.btn-outline{border:1px solid var(--gold);color:var(--gold-light)}
+.btn-outline{background:var(--navy);border:1px solid var(--gold);color:var(--gold-light);box-shadow:0 6px 18px rgba(0,0,0,.22)}
 .btn-outline:hover{background:var(--gold);color:#2e2206}
 .nav-cta{padding:9px 22px}
 .nav-links-cta{display:none}
