@@ -276,7 +276,7 @@ function localBusinessSchema(c) {
     email: String((c.contact && c.contact.email) || '').trim().split(/\s+/)[0],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '74 Lorong 6 Geylang',
+      streetAddress: String((c.contact && c.contact.address) || '').replace(/,\s*Singapore\s*$/i, '').trim() || 'Lorong 16 Geylang',
       addressLocality: 'Singapore',
       addressCountry: 'SG'
     },
