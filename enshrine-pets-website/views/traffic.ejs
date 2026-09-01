@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traffic — Enshrine 欣奉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <div class="brand">Enshrine <span>欣奉</span></div>
+  <nav>
+    <a href="/admin">Edit Content</a>
+    <a href="/admin/enquiries">Enquiries</a>
+    <a href="/admin/traffic" class="active">Traffic</a>
+    <a href="/admin/users">Users</a>
+    <a href="/" target="_blank">View Site ↗</a>
+    <span class="who">Signed in as <strong><%= currentUser.username %></strong></span>
+    <form method="post" action="/admin/logout" style="margin:0"><button type="submit">Log out</button></form>
+  </nav>
+</div></div>
+<div class="wrap">
+  <div class="page-head"><h1>Website traffic</h1><p>Real human visits (automated bots and crawlers are excluded). Tracking began when this feature was installed.</p></div>
+  <div class="stat-row">
+    <div class="stat"><div class="num"><%= totalHuman %></div><div class="lbl">Human page views (last 30 days)</div></div>
+    <div class="stat"><div class="num"><%= bots %></div><div class="lbl">Bot / crawler hits filtered out</div></div>
+    <div class="stat"><div class="num"><%= days.length ? Math.round(totalHuman/days.length) : 0 %></div><div class="lbl">Avg human views / active day</div></div>
+  </div>
+  <div class="card">
+    <h2>Daily (human)</h2>
+    <% if (!days.length) { %><p class="hint">No data yet — check back after the site has had visitors.</p><% } else {
+      var max = Math.max.apply(null, days.map(function(d){return d.views;})) || 1; %>
+      <table class="utable"><thead><tr><th>Date</th><th>Views</th><th>Unique visitors</th><th></th></tr></thead><tbody>
+      <% days.slice().reverse().forEach(function(d){ %>
+        <tr><td class="nowrap"><%= d.date %></td><td><%= d.views %></td><td><%= d.uniques %></td>
+        <td style="width:45%"><span class="bar" style="width:<%= Math.round(d.views/max*100) %>%"></span></td></tr>
+      <% }); %>
+      </tbody></table>
+    <% } %>
+  </div>
+  <div class="card">
+    <h2>Top pages</h2>
+    <% if (!topPaths.length) { %><p class="hint">No data yet.</p><% } else { %>
+      <table class="utable"><thead><tr><th>Path</th><th>Human views</th></tr></thead><tbody>
+      <% topPaths.forEach(function(p){ %><tr><td><%= p[0] %></td><td><%= p[1] %></td></tr><% }); %>
+      </tbody></table>
+    <% } %>
+  </div>
+</div>
+</body></html>

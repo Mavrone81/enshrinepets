@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enquiries — Enshrine 欣奉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+  <div class="brand">Enshrine <span>欣奉</span></div>
+  <nav>
+    <a href="/admin">Edit Content</a>
+    <a href="/admin/enquiries" class="active">Enquiries<% if (newCount) { %> <b class="pill"><%= newCount %></b><% } %></a>
+    <a href="/admin/traffic">Traffic</a>
+    <a href="/admin/users">Users</a>
+    <a href="/" target="_blank">View Site ↗</a>
+    <span class="who">Signed in as <strong><%= currentUser.username %></strong></span>
+    <form method="post" action="/admin/logout" style="margin:0"><button type="submit">Log out</button></form>
+  </nav>
+</div></div>
+<div class="wrap">
+  <div class="page-head"><h1>Enquiries</h1><p>Messages sent through the website contact form. Newest first.</p></div>
+  <% if (flash) { %><div class="flash <%= flash.type %>"><%= flash.message %></div><% } %>
+  <% if (!list.length) { %>
+    <div class="card"><p class="hint">No enquiries yet. When a visitor submits the website contact form, it will appear here.</p></div>
+  <% } else { %>
+    <div class="card">
+      <table class="utable enq">
+        <thead><tr><th>When</th><th>From</th><th>Message</th><th>Page</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+        <% list.forEach(function(e){ %>
+          <tr class="<%= e.handled ? 'done' : 'new' %>">
+            <td class="nowrap"><%= new Date(e.ts).toLocaleString('en-SG',{dateStyle:'medium',timeStyle:'short'}) %></td>
+            <td><strong><%= e.name %></strong><br><span class="muted"><%= e.contact %></span></td>
+            <td class="msg"><%= e.message %></td>
+            <td class="muted small"><%= e.page %></td>
+            <td><form method="post" action="/admin/enquiries/<%= e.id %>/handled" style="margin:0"><button class="tag <%= e.handled ? 'ok':'todo' %>"><%= e.handled ? 'Handled':'New' %></button></form></td>
+            <td><form method="post" action="/admin/enquiries/<%= e.id %>/delete" style="margin:0" onsubmit="return confirm('Delete this enquiry?')"><button class="danger">Delete</button></form></td>
+          </tr>
+        <% }); %>
+        </tbody>
+      </table>
+    </div>
+  <% } %>
+</div>
+</body></html>

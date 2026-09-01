@@ -24,6 +24,7 @@
 
 <section class="page-body">
   <div class="container">
+    <% if (typeof flash!=="undefined" && flash) { %><div class="enquiry-alert <%= flash.type %>" style="max-width:780px;margin:0 auto 24px"><%= flash.message %></div><% } %>
     <article class="prose">
       <% (page.blocks || []).forEach(function(b){ %>
         <% if (b.heading) { %><h2><%= b.heading %></h2><% } %>
@@ -53,6 +54,9 @@
       </aside>
     <% } %>
 
+    <% if (slug === "contact") { %>
+    <div class="contact-form-wrap"><%- include('partials/enquiry-form') %></div>
+    <% } %>
     <div class="page-cta">
       <h3><%= page.ctaTitle || c.contact.cardTitle %></h3>
       <p><%= page.ctaText || (c.contact.address) %></p>

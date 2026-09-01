@@ -205,6 +205,9 @@ function flash(req, type, message) {
   req.session.flash = { type, message };
 }
 
+// Lead capture (enquiry form) + self-hosted, bot-filtered analytics.
+require('./enquiries-analytics')(app, { DATA_DIR, requireAuth, flash });
+
 // Uploads: keep original-ish name but make it unique & safe.
 const storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, UPLOAD_DIR),

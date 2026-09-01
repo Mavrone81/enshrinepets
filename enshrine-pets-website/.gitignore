@@ -9,6 +9,8 @@ data/users.json
 # Live, admin-editable content. Seeded from the *.default.json templates on
 # first boot; kept out of git so live admin edits persist across deploys.
 data/content.json
+data/enquiries.json
+data/analytics.json
 data/i18n/*.json
 !data/i18n/*.default.json
 

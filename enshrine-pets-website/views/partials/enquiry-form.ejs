@@ -1,0 +1,17 @@
+<div class="enquiry" id="enquiry-form">
+  <h3><%= (c.contact && c.contact.formTitle) || 'Send us a message' %></h3>
+  <p class="enquiry-note"><%= (c.contact && c.contact.formNote) || 'Leave your details and an advisor will respond, usually the same day. For immediate help, call or WhatsApp us.' %></p>
+  <% if (typeof flash !== 'undefined' && flash) { %>
+    <div class="enquiry-alert <%= flash.type %>"><%= flash.message %></div>
+  <% } %>
+  <form method="post" action="/enquiry" class="enquiry-form">
+    <input type="hidden" name="page" value="<%= (typeof canonicalPath !== 'undefined' ? canonicalPath : '/') %>">
+    <div class="ef-hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+    <div class="ef-grid">
+      <label>Name<span>*</span><input type="text" name="name" required maxlength="200" placeholder="Your name"></label>
+      <label>Phone or email<span>*</span><input type="text" name="contact" required maxlength="200" placeholder="So we can reach you"></label>
+    </div>
+    <label>How can we help?<span>*</span><textarea name="message" rows="4" required maxlength="4000" placeholder="Tell us a little about what you need"></textarea></label>
+    <button type="submit" class="btn btn-gold">Send enquiry</button>
+  </form>
+</div>
