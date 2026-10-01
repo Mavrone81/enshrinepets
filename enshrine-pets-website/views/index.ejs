@@ -7,11 +7,11 @@
 
 <%- include('partials/nav') %>
 
-<header class="hero" id="top">
+<header class="hero" id="top" style="--hero-img:url('<%= c.hero.image %>')">
   <div class="container hero-grid">
     <div>
       <img class="hero-logo" src="<%= c.hero.logo %>" alt="Enshrine 欣奉 logo">
-      <h1><%= c.hero.headingLead %> <em><%= c.hero.headingEm %></em></h1>
+      <h1><span class="h1-lead"><%= c.hero.headingLead %></span> <em><%= c.hero.headingEm %></em></h1>
       <p><%= c.hero.paragraph %></p>
       <div class="hero-values">
         <% c.hero.values.forEach(function(v){ %><span><%= v %></span><% }); %>
@@ -19,7 +19,7 @@
       <a href="<%= c.hero.primaryBtnLink %>" class="btn btn-gold"><%= c.hero.primaryBtnLabel %></a>&nbsp;&nbsp;
       <a href="<%= c.hero.secondaryBtnLink %>" class="btn btn-outline"><%= c.hero.secondaryBtnLabel %></a>
     </div>
-    <div>
+    <div class="hero-photo">
       <img src="<%= c.hero.image %>" alt="<%= c.hero.imageAlt %>">
     </div>
   </div>
